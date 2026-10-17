@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "index.html",
+    "course.html",
+    "game.html",
+    "ai-series.html",
+    "404.html"
+  ],
+  "files": 81,
+  "bytes": 46678869,
+  "base_url": null,
+  "sharing_ready": false
+}

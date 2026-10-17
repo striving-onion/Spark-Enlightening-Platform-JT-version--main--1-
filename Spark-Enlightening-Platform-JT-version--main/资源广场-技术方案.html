@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script src="assets/js/theme-init.js"></script>
+<link rel="stylesheet" href="assets/css/legacy-tokens.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>资源广场 · 功能技术方案</title>
+<link rel="stylesheet" href="assets/css/base.css">
+<style>
+:root{
+  --purple:var(--legacy-1);
+  --purple-deep:var(--legacy-57);
+  --purple-light:var(--legacy-3);
+  --purple-soft:var(--legacy-58);
+  --ink:var(--legacy-4);
+  --gray:var(--legacy-59);
+  --line:var(--legacy-60);
+  --page:var(--legacy-61);
+  --green:var(--legacy-62);
+  --amber:var(--legacy-63);
+  --var(--legacy-28):var(--legacy-64);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Inter","PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  background:var(--page);color:var(--ink);line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+.page{max-width:1000px;margin:0 auto;padding:0 24px 90px}
+
+/* ===== 封面 ===== */
+.hero{
+  background:linear-gradient(135deg,var(--legacy-65) 0%,var(--legacy-66) 55%,var(--legacy-51) 100%);
+  color:var(--legacy-10);padding:64px 24px 72px;margin-bottom:-40px;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;right:-60px;bottom:-90px;width:280px;height:280px;
+  background:var(--legacy-67);border-radius:38% 62% 55% 45%/45% 40% 60% 55%;
+}
+.hero::before{
+  content:"";position:absolute;left:-70px;top:-70px;width:200px;height:200px;
+  background:var(--legacy-68);border-radius:50%;
+}
+.hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:2}
+.eyebrow{font-size:13px;letter-spacing:2px;font-weight:600;opacity:.75;margin-bottom:14px}
+.hero h1{font-size:38px;font-weight:800;letter-spacing:-.5px;line-height:1.25;margin-bottom:14px}
+.hero .sub{font-size:16px;opacity:.88;max-width:640px;line-height:1.7}
+.chips{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+.chips span{
+  background:var(--legacy-69);border:1px solid var(--legacy-70);
+  padding:6px 14px;border-radius:999px;font-size:12.5px;font-weight:500;
+}
+
+/* ===== 卡片 ===== */
+.card{
+  background:var(--legacy-10);border:1px solid var(--line);border-radius:18px;
+  padding:32px 38px;margin-bottom:22px;
+  box-shadow:0 3px 18px var(--legacy-71);
+}
+.card:first-of-type{margin-top:56px}
+h2{
+  font-size:22px;font-weight:750;letter-spacing:-.2px;margin-bottom:20px;
+  display:flex;align-items:center;gap:12px;
+}
+h2 .n{
+  flex:none;width:32px;height:32px;border-radius:10px;
+  background:linear-gradient(135deg,var(--legacy-66),var(--legacy-1));color:var(--legacy-10);
+  font-size:15px;font-weight:700;display:grid;place-items:center;
+  box-shadow:0 4px 12px var(--legacy-72);
+}
+h3{
+  font-size:16px;font-weight:700;margin:26px 0 12px;color:var(--purple-deep);
+}
+h3:first-child{margin-top:0}
+p{margin-bottom:12px;color:var(--legacy-73);font-size:14.5px}
+strong{color:var(--ink);font-weight:700}
+
+/* ===== 表格 ===== */
+table{width:100%;border-collapse:separate;border-spacing:0;margin:14px 0 6px;font-size:13.8px}
+th{
+  background:var(--purple-soft);color:var(--purple-deep);font-weight:700;
+  text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);
+  font-size:13px;letter-spacing:.3px;
+}
+th:first-child{border-radius:10px 0 0 0}
+th:last-child{border-radius:0 10px 0 0}
+td{padding:12px 16px;border-bottom:1px solid var(--legacy-74);color:var(--legacy-73);vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:var(--legacy-75)}
+td code{background:var(--purple-soft);color:var(--purple-deep);padding:2px 7px;border-radius:5px;font-size:12.5px}
+
+/* ===== 提示框 ===== */
+.callout{
+  border-left:4px solid var(--purple);background:var(--purple-soft);
+  padding:16px 20px;border-radius:0 12px 12px 0;margin:18px 0;font-size:14px;
+}
+.callout .t{font-weight:700;display:block;margin-bottom:6px;color:var(--purple-deep)}
+.callout.warn{border-color:var(--legacy-76);background:var(--legacy-77)}
+.callout.warn .t{color:var(--amber)}
+.callout.ok{border-color:var(--green);background:var(--legacy-78)}
+.callout.ok .t{color:var(--legacy-79)}
+.callout p:last-child{margin-bottom:0}
+/* 行内「已处理」标记 */
+.ok{color:var(--legacy-79);font-weight:700;var(--legacy-9)-space:nowrap}
+
+/* ===== 代码 ===== */
+pre.code{
+  background:var(--legacy-80);color:var(--legacy-81);padding:20px 22px;border-radius:14px;
+  font-family:ui-monospace,"Cascadia Code",Consolas,Monaco,monospace;
+  font-size:12.8px;line-height:1.85;overflow-x:auto;margin:14px 0;
+  border:1px solid var(--legacy-82);
+}
+pre.code .c{color:var(--legacy-83)}
+
+/* ===== 列表 ===== */
+ol.flow{margin:14px 0 6px;padding-left:0;list-style:none;counter-reset:s}
+ol.flow li{
+  position:relative;padding:11px 0 11px 44px;border-bottom:1px dashed var(--legacy-84);
+  font-size:14px;color:var(--legacy-73);counter-increment:s;
+}
+ol.flow li:last-child{border-bottom:none}
+ol.flow li::before{
+  content:counter(s);position:absolute;left:0;top:12px;
+  width:26px;height:26px;border-radius:8px;background:var(--purple-light);
+  color:var(--purple-deep);font-size:12.5px;font-weight:700;
+  display:grid;place-items:center;
+}
+ul.dot{margin:12px 0;padding-left:20px;font-size:14px;color:var(--legacy-73)}
+ul.dot li{margin-bottom:7px}
+ul.dot li::marker{color:var(--purple)}
+
+/* ===== 目录 ===== */
+.toc{background:var(--legacy-10);border:1px solid var(--line);border-radius:18px;padding:26px 34px;margin-top:56px;box-shadow:0 3px 18px var(--legacy-71)}
+.toc h3{margin:0 0 14px;font-size:14px;letter-spacing:1.5px;color:var(--gray);text-transform:uppercase;font-weight:700}
+.toc ol{list-style:none;counter-reset:t;columns:2;column-gap:32px}
+.toc li{counter-increment:t;margin-bottom:9px;break-inside:avoid}
+.toc a{
+  color:var(--legacy-73);text-decoration:none;font-size:14px;display:flex;gap:9px;align-items:baseline;
+  transition:color .18s;
+}
+.toc a:hover{color:var(--purple)}
+.toc a::before{content:counter(t)".";color:var(--purple);font-weight:700;font-size:12.5px}
+
+/* ===== 图 ===== */
+.diagram{
+  background:var(--legacy-75);border:1px solid var(--line);border-radius:16px;
+  padding:22px 18px;overflow-x:auto;margin:18px 0 12px;
+}
+.diagram svg{width:100%;height:auto;min-width:860px;display:block}
+.legend{display:flex;flex-wrap:wrap;gap:20px;font-size:12.8px;color:var(--gray);padding:4px 6px 0}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:7px;vertical-align:-2px}
+.legend .dot-a{background:var(--legacy-85);border:1.5px solid var(--legacy-86)}
+.legend .dot-r{background:var(--legacy-87);border:1.5px solid var(--legacy-88)}
+.legend .dot-s{background:var(--legacy-10);border:1.5px solid var(--legacy-89)}
+.legend .line-s{width:20px;height:0;border-top:2px solid var(--legacy-66);border-radius:0}
+.legend .line-d{width:20px;height:0;border-top:2px dashed var(--legacy-90);border-radius:0}
+
+/* ===== 页脚 ===== */
+footer{
+  text-align:center;color:var(--legacy-90);font-size:12.5px;
+  padding:34px 0 10px;border-top:1px solid var(--line);margin-top:14px;
+}
+footer strong{color:var(--gray)}
+
+[id]{scroll-margin-top:26px}
+
+@media (max-width:720px){
+  .hero h1{font-size:27px}
+  .card{padding:24px 20px}
+  .toc ol{columns:1}
+  table{font-size:12.8px}
+  th,td{padding:9px 11px}
+}
+
+@media print{
+  body{background:var(--legacy-10)}
+  .hero{background:var(--legacy-65) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card,.toc{box-shadow:none;break-inside:avoid}
+  .diagram{break-inside:avoid}
+  .toc{display:none}
+  @page{margin:12mm}
+}
+</style>
+<link rel="stylesheet" href="assets/css/visual.css">
+</head>
+<body class="resource-plan">
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">SPARK · 星火支教科普平台</div>
+    <h1>资源广场 · 功能技术方案</h1>
+    <p class="sub">PPT 课件"在线播放、不可下载" + 用户修改意见收集，以及后台管理端的数据打通方案。</p>
+    <div class="chips">
+      <span>版本 v1.0</span>
+      <span>状态：待评审</span>
+      <span>类型：新增功能模块</span>
+      <span>影响范围：新增页面 + 新增后端</span>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- 目录 -->
+  <nav class="toc">
+    <h3>目录</h3>
+    <ol>
+      <li><a href="#req">需求概述与可行性评价</a></li>
+      <li><a href="#stack">技术栈选型</a></li>
+      <li><a href="#impl">核心实现要点</a></li>
+      <li><a href="#arch">系统架构图</a></li>
+      <li><a href="#plan">分阶段实施计划</a></li>
+      <li><a href="#risk">风险与注意事项</a></li>
+    </ol>
+  </nav>
+
+  <!-- ============ 1 ============ -->
+  <section class="card" id="req">
+    <h2><span class="n">1</span>需求概述与可行性评价</h2>
+
+    <h3>1.1 需求拆解</h3>
+    <table>
+      <thead>
+        <tr><th style="width:20%">需求</th><th style="width:34%">具体要求</th><th style="width:30%">技术判断</th><th style="width:16%">难度</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>R1 资源广场</strong></td><td>集中存放并展示 PPT 课件，供用户浏览</td><td>需新增资源列表页与课程数据源</td><td>中</td></tr>
+        <tr><td><strong>R2 只能播放</strong></td><td>用户可在线查看，但无法下载源文件</td><td><strong>必须由服务端渲染成图片，源文件永不外发</strong></td><td>高</td></tr>
+        <tr><td><strong>R3 修改意见</strong></td><td>用户可对 PPT 内容提出修改意见</td><td>表单 + 数据持久化，依赖后端接口</td><td>低</td></tr>
+        <tr><td><strong>R4 后台可见</strong></td><td>意见数据在后台管理端可查看与处理</td><td>需管理端页面 + 意见数据表</td><td>中</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout ok">
+      <span class="t">核心结论</span>
+      <p>R2 与 R3/R4 三个需求都指向<strong>同一个前提：必须引入后端服务</strong>。现有纯静态架构无法满足——只要原始文件能被浏览器请求到，就一定能被下载；而意见数据也需要持久化。好消息是，这两件事正好与"后续开发后台"的计划合并推进，<strong>一次投入即可满足全部需求</strong>。</p>
+    </div>
+
+    <h3>1.2 能力边界（必须提前对齐）</h3>
+    <p>"不能被下载、只能被播放"在技术上没有 100% 的阻断方案，业界（包括各类在线课件平台）均采用"提高成本 + 水印追责"的策略。建议在需求确认阶段就把目标表述为下表右列的形式。</p>
+    <table>
+      <thead>
+        <tr><th style="width:50%">✅ 可以做到</th><th style="width:50%">❌ 无法做到</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>不提供下载入口，用户拿不到原始 PPT 文件</td><td>阻止用户截屏、拍照或录屏</td></tr>
+        <tr><td>每页图片叠加"用户 ID + 时间戳"水印</td><td>阻止用户保存图片后二次传播</td></tr>
+        <tr><td>短时效签名 URL、禁右键、禁拖拽</td><td>阻止技术人员从浏览器网络面板抓取</td></tr>
+        <tr><td>存储目录不可浏览，源文件置于私有存储</td><td>——</td></tr>
+        <tr><td>全程操作审计，泄露内容可溯源追责</td><td>——</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout warn">
+      <span class="t">⚠ 建议的需求表述</span>
+      <p>把"PPT 不能被下载"改写为：<strong>"不提供下载入口 + 显著提高获取成本 + 全程水印可追责"</strong>。提前对齐这一点，可以避免后期验收时因"用户仍能截屏"而产生争议。</p>
+    </div>
+  </section>
+
+  <!-- ============ 2 ============ -->
+  <section class="card" id="stack">
+    <h2><span class="n">2</span>技术栈选型</h2>
+    <p>选型原则：<strong>沿用现有技术基因（原生 H5、零框架），只在"必须新增"的地方引入依赖</strong>，降低团队学习成本与部署复杂度。</p>
+
+    <table>
+      <thead>
+        <tr><th style="width:16%">层次</th><th style="width:30%">推荐选型</th><th style="width:54%">选择理由</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>前端</strong></td><td>沿用原生 HTML / CSS / JS，新增 <code>resources.html</code></td><td>与现有页面风格与代码习惯完全一致，无需引入框架</td></tr>
+        <tr><td><strong>后端</strong></td><td>Node.js + Express<br><span style="color:var(--legacy-90)">（备选：Python FastAPI）</span></td><td>与前端同语言，团队上手快；若更侧重图像处理也可选 FastAPI</td></tr>
+        <tr><td><strong>PPT 转换</strong></td><td>LibreOffice headless → PDF → 逐页 PNG</td><td>开源免费、跨平台、效果稳定，是业界事实标准</td></tr>
+        <tr><td><strong>转换备选</strong></td><td>PowerPoint COM（保真最高）／ Aspose.Slides（付费）</td><td>仅在保真度要求极高时才采用，成本与复杂度都更高</td></tr>
+        <tr><td><strong>图像处理</strong></td><td>sharp（水印 / 压缩 / 切片）</td><td>Node 生态中最成熟的图像库</td></tr>
+        <tr><td><strong>对象存储</strong></td><td>MinIO（自建免费）／ 阿里云 OSS、腾讯云 COS</td><td>源文件放<strong>私有桶</strong>，切片图放受控桶，天然隔离</td></tr>
+        <tr><td><strong>数据库</strong></td><td>SQLite（起步）→ MySQL / PostgreSQL</td><td>起步零配置，数据量增长后平滑迁移</td></tr>
+        <tr><td><strong>部署</strong></td><td>Docker Compose（nginx + api + worker + minio + db）</td><td>一个文件拉起全套环境，最省心的方案</td></tr>
+        <tr><td><strong>过渡方案</strong></td><td>Supabase（自带 Postgres + Storage + 可视化后台）</td><td>后台未完成期间可立刻看到收集到的意见，后期再迁回自建</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============ 3 ============ -->
+  <section class="card" id="impl">
+    <h2><span class="n">3</span>核心实现要点</h2>
+
+    <h3>3.1 防下载的分层策略（按性价比排序）</h3>
+    <ol class="flow">
+      <li><strong>源文件永不出域</strong>：原始 <code>.pptx</code> 只存放在私有存储桶中，仅转换服务可读；前端自始至终只接触渲染好的 PNG 切片。<em>这是整个方案的技术根基。</em></li>
+      <li><strong>签名 URL</strong>：<code>GET /slides?token=xxx</code>，token 为短时效（约 10 分钟）JWT，绑定用户与 PPT 编号，过期立即失效。</li>
+      <li><strong>服务端水印</strong>：每页图片在服务端叠加"用户 ID / 昵称 + 时间戳"平铺半透明水印。<em>这是真正有价值的一层</em>——防不住下载，但一旦外泄可精准溯源追责。</li>
+      <li><strong>前端软防护</strong>：禁用右键菜单、<code>user-select:none</code>、<code>-webkit-user-drag:none</code>，并使用 <code>&lt;canvas&gt;</code> 逐页绘制而非直接使用 <code>&lt;img&gt;</code>，提高抓取门槛。</li>
+      <li><strong>高清渲染</strong>：按 150–200 DPI 渲染切片，保证放大后文字依然清晰可读。</li>
+      <li><strong>服务端加固</strong>：关闭目录浏览（Nginx 禁用 <code>autoindex</code>），响应头设置 <code>Content-Disposition: inline</code>，禁止外部站点盗链。</li>
+    </ol>
+
+    <h3>3.2 修改意见模块</h3>
+    <ul class="dot">
+      <li><strong>基础字段</strong>：PPT 编号 + 页码 + 意见内容 + 联系方式（选填）。</li>
+      <li><strong>进阶玩法（推荐）</strong>：允许用户在幻灯片上<strong>框选区域</strong>后再提交意见，后端存储归一化坐标 <code>[x, y, w, h]</code>（取值 0–1，与分辨率无关）。后台即可精准定位到"第 5 页左上角那个数据有误"，这是本功能真正的差异点。</li>
+      <li><strong>状态流转</strong>：提交后进入意见表，后台按"待处理 → 已采纳 / 已驳回"流转，并记录处理人与处理时间。</li>
+    </ul>
+
+    <h3>3.3 过渡期方案：适配器模式</h3>
+    <p>后台尚未开发完成时，前端不应被阻塞。通过统一的 <code>FeedbackService</code> 接口 + 可替换实现，后期切换只改一行配置，业务代码零改动。</p>
+<pre class="code"><span class="c">// 统一接口：业务层只依赖这一层</span>
+FeedbackService.submit({ pptId, page, area, content, contact })
+
+  ├─ LocalStorageAdapter   <span class="c">// 现在：暂存本地，支持"导出 JSON"</span>
+  ├─ SupabaseAdapter       <span class="c">// 过渡：直接落库，后台可即时可见</span>
+  └─ HttpAdapter           <span class="c">// 后台就绪：fetch POST /api/feedback</span></pre>
+
+    <h3>3.4 数据模型（后台按此建表）</h3>
+    <table>
+      <thead><tr><th style="width:18%">表名</th><th style="width:44%">关键字段</th><th style="width:38%">说明</th></tr></thead>
+      <tbody>
+        <tr><td><code>ppt</code></td><td>id, title, cover_key, source_key, status, created_at</td><td>课件主表，<code>source_key</code> 指向私有桶</td></tr>
+        <tr><td><code>ppt_slide</code></td><td>id, ppt_id, page_no, image_key, width, height</td><td>逐页切片，前端按此列表拉取</td></tr>
+        <tr><td><code>feedback</code></td><td>id, ppt_id, page_no, area[x,y,w,h], content, contact, user_id, status, created_at, handled_by, handled_at</td><td>修改意见主表，<code>area</code> 为框选坐标</td></tr>
+        <tr><td><code>user</code></td><td>id, nickname, avatar, role</td><td>用户与角色（普通用户 / 管理员）</td></tr>
+        <tr><td><code>play_log</code></td><td>id, ppt_id, user_id, ip, ua, started_at</td><td>播放审计日志，配合水印用于溯源</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3.5 接口契约（前后端现在即可定死）</h3>
+    <table>
+      <thead><tr><th style="width:12%">方法</th><th style="width:34%">路径</th><th style="width:38%">说明</th><th style="width:16%">鉴权</th></tr></thead>
+      <tbody>
+        <tr><td><code>POST</code></td><td><code>/api/ppt/:id/play-token</code></td><td>申请播放令牌，返回 <code>{ token, expiresIn }</code></td><td>需登录</td></tr>
+        <tr><td><code>GET</code></td><td><code>/api/ppt/:id/slides?token=</code></td><td>返回切片列表 <code>[{ page, url, w, h }]</code></td><td>令牌校验</td></tr>
+        <tr><td><code>POST</code></td><td><code>/api/feedback</code></td><td>提交修改意见</td><td>需登录</td></tr>
+        <tr><td><code>GET</code></td><td><code>/api/admin/feedback?status=</code></td><td>后台按状态拉取意见列表</td><td>管理员</td></tr>
+        <tr><td><code>PATCH</code></td><td><code>/api/admin/feedback/:id</code></td><td>更新意见处理状态</td><td>管理员</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============ 4 ============ -->
+  <section class="card" id="arch">
+    <h2><span class="n">4</span>系统架构图</h2>
+    <p>自下而上分为六层。<strong>图中最关键的一条是"源文件永不外发"</strong>——原始 pptx 存放于私有桶，用户端从头到尾只接触渲染好的图片切片，这是"只能播放、不能下载"的技术根基；其余签名 URL、水印、禁右键都是在它之上的加固层。</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 1260 1060" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="资源广场系统架构图">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 Z" fill="var(--legacy-66)"/>
+          </marker>
+          <marker id="arrowGray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 Z" fill="var(--legacy-90)"/>
+          </marker>
+        </defs>
+        <style>
+          .band{fill:var(--legacy-91);stroke:var(--legacy-60);stroke-width:1.5}
+          .bl{font:700 14px "PingFang SC","Microsoft YaHei",sans-serif;fill:var(--legacy-65)}
+          .box{fill:var(--legacy-92);stroke:var(--legacy-89);stroke-width:1.5}
+          .boxA{fill:var(--legacy-85);stroke:var(--legacy-86);stroke-width:1.5}
+          .boxR{fill:var(--legacy-87);stroke:var(--legacy-88);stroke-width:1.5}
+          .bt{font:600 13.5px "PingFang SC","Microsoft YaHei",sans-serif;fill:var(--legacy-93)}
+          .bs{font:400 11.5px "PingFang SC","Microsoft YaHei",sans-serif;fill:var(--legacy-59)}
+          .al{font:500 11.5px "PingFang SC","Microsoft YaHei",sans-serif;fill:var(--legacy-94)}
+          .ag{font:500 11.5px "PingFang SC","Microsoft YaHei",sans-serif;fill:var(--legacy-90)}
+          .fl{stroke:var(--legacy-66);stroke-width:2;fill:none}
+          .fd{stroke:var(--legacy-90);stroke-width:1.8;stroke-dasharray:6 5;fill:none}
+        </style>
+
+        <!-- ===== 层背景 ===== -->
+        <rect class="band" x="90" y="30"   width="1090" height="150" rx="14"/>
+        <rect class="band" x="90" y="224"  width="1090" height="110" rx="14"/>
+        <rect class="band" x="90" y="378"  width="1090" height="150" rx="14"/>
+        <rect class="band" x="90" y="572"  width="1090" height="130" rx="14"/>
+        <rect class="band" x="90" y="746"  width="1090" height="140" rx="14"/>
+        <rect class="band" x="90" y="930"  width="1090" height="110" rx="14"/>
+
+        <!-- ===== 层标题 ===== -->
+        <text class="bl" x="112" y="58">用户端 · 浏览器 H5　／　沿用现有原生 HTML、CSS、JS</text>
+        <text class="bl" x="112" y="252">接入层 · Nginx 反向代理与 API 网关</text>
+        <text class="bl" x="112" y="406">应用层 · 后端服务（后续开发：Express / FastAPI）</text>
+        <text class="bl" x="112" y="600">转换流水线 · 异步任务 Worker</text>
+        <text class="bl" x="112" y="774">存储层</text>
+        <text class="bl" x="112" y="958">后台管理端（后续开发）</text>
+
+        <!-- ===== 第一层：用户端 ===== -->
+        <rect class="box"  x="112" y="76" width="242" height="84" rx="10"/>
+        <text class="bt" x="233" y="110" text-anchor="middle">资源广场页</text>
+        <text class="bs" x="233" y="134" text-anchor="middle">resources.html</text>
+
+        <rect class="boxA" x="378" y="76" width="242" height="84" rx="10"/>
+        <text class="bt" x="499" y="110" text-anchor="middle">PPT 播放器</text>
+        <text class="bs" x="499" y="134" text-anchor="middle">canvas 逐页绘制</text>
+
+        <rect class="box"  x="644" y="76" width="242" height="84" rx="10"/>
+        <text class="bt" x="765" y="110" text-anchor="middle">修改意见表单</text>
+        <text class="bs" x="765" y="134" text-anchor="middle">页码 + 框选区域</text>
+
+        <rect class="boxA" x="910" y="76" width="242" height="84" rx="10"/>
+        <text class="bt" x="1031" y="110" text-anchor="middle">FeedbackService</text>
+        <text class="bs" x="1031" y="134" text-anchor="middle">适配器层 · 过渡方案</text>
+
+        <path class="fl" d="M354,118 L378,118" marker-end="url(#arrow)"/>
+        <path class="fl" d="M620,118 L644,118" marker-end="url(#arrow)"/>
+
+        <!-- ===== 第二层：接入层 ===== -->
+        <rect class="box" x="112" y="270" width="515" height="54" rx="10"/>
+        <text class="bt" x="369" y="292" text-anchor="middle">静态资源 / 切片图服务</text>
+        <text class="bs" x="369" y="312" text-anchor="middle">签名 URL · Referer 与 Origin 校验</text>
+
+        <rect class="box" x="643" y="270" width="515" height="54" rx="10"/>
+        <text class="bt" x="900" y="292" text-anchor="middle">API 网关</text>
+        <text class="bs" x="900" y="312" text-anchor="middle">/api/ppt/*　·　/api/feedback</text>
+
+        <!-- ===== 第三层：后端服务 ===== -->
+        <rect class="box" x="112" y="424" width="200" height="90" rx="10"/>
+        <text class="bt" x="212" y="462" text-anchor="middle">PPT 管理</text>
+        <text class="bs" x="212" y="486" text-anchor="middle">上传 / 发布 / 下架</text>
+
+        <rect class="box" x="323" y="424" width="200" height="90" rx="10"/>
+        <text class="bt" x="423" y="462" text-anchor="middle">播放令牌签发</text>
+        <text class="bs" x="423" y="486" text-anchor="middle">短时效 JWT</text>
+
+        <rect class="box" x="534" y="424" width="200" height="90" rx="10"/>
+        <text class="bt" x="634" y="462" text-anchor="middle">意见收集 API</text>
+        <text class="bs" x="634" y="486" text-anchor="middle">POST /api/feedback</text>
+
+        <rect class="box" x="745" y="424" width="200" height="90" rx="10"/>
+        <text class="bt" x="845" y="462" text-anchor="middle">后台管理 API</text>
+        <text class="bs" x="845" y="486" text-anchor="middle">GET 意见列表</text>
+
+        <rect class="box" x="956" y="424" width="200" height="90" rx="10"/>
+        <text class="bt" x="1056" y="462" text-anchor="middle">鉴权与角色</text>
+        <text class="bs" x="1056" y="486" text-anchor="middle">JWT / RBAC</text>
+
+        <!-- ===== 第四层：转换流水线 ===== -->
+        <rect class="box" x="112" y="610" width="338" height="72" rx="10"/>
+        <text class="bt" x="281" y="642" text-anchor="middle">LibreOffice headless</text>
+        <text class="bs" x="281" y="664" text-anchor="middle">pptx → pdf</text>
+
+        <rect class="box" x="466" y="610" width="338" height="72" rx="10"/>
+        <text class="bt" x="635" y="642" text-anchor="middle">pdftoppm（Poppler）</text>
+        <text class="bs" x="635" y="664" text-anchor="middle">pdf → 逐页 PNG</text>
+
+        <rect class="box" x="820" y="610" width="338" height="72" rx="10"/>
+        <text class="bt" x="989" y="642" text-anchor="middle">sharp 叠加水印</text>
+        <text class="bs" x="989" y="664" text-anchor="middle">用户 ID + 时间戳</text>
+
+        <path class="fl" d="M450,646 L466,646" marker-end="url(#arrow)"/>
+        <path class="fl" d="M804,646 L820,646" marker-end="url(#arrow)"/>
+
+        <!-- ===== 第五层：存储层 ===== -->
+        <rect class="boxR" x="112" y="784" width="338" height="78" rx="10"/>
+        <text class="bt" x="281" y="820" text-anchor="middle">对象存储 · 私有桶</text>
+        <text class="bs" x="281" y="842" text-anchor="middle">原始 pptx　·　永不外发</text>
+
+        <rect class="boxA" x="466" y="784" width="338" height="78" rx="10"/>
+        <text class="bt" x="635" y="820" text-anchor="middle">对象存储 · 受控桶</text>
+        <text class="bs" x="635" y="842" text-anchor="middle">切片图片 · 仅签名 URL 可读</text>
+
+        <rect class="box" x="820" y="784" width="338" height="78" rx="10"/>
+        <text class="bt" x="989" y="820" text-anchor="middle">数据库</text>
+        <text class="bs" x="989" y="842" text-anchor="middle">SQLite → MySQL · 业务表</text>
+
+        <!-- ===== 第六层：后台管理端 ===== -->
+        <rect class="box" x="112" y="966" width="338" height="56" rx="10"/>
+        <text class="bt" x="281" y="990" text-anchor="middle">意见看板</text>
+        <text class="bs" x="281" y="1010" text-anchor="middle">按状态流转处理</text>
+
+        <rect class="box" x="466" y="966" width="338" height="56" rx="10"/>
+        <text class="bt" x="635" y="990" text-anchor="middle">PPT 上架 / 下架</text>
+        <text class="bs" x="635" y="1010" text-anchor="middle">触发重新转换</text>
+
+        <rect class="box" x="820" y="966" width="338" height="56" rx="10"/>
+        <text class="bt" x="989" y="990" text-anchor="middle">播放审计日志</text>
+        <text class="bs" x="989" y="1010" text-anchor="middle">水印溯源追责</text>
+
+        <!-- ===== 跨层箭头 ===== -->
+        <path class="fl" d="M635,180 L635,224" marker-end="url(#arrow)"/>
+        <text class="al" x="651" y="198">① 申请播放令牌　② 拉取页图</text>
+        <text class="al" x="651" y="214">③ 提交修改意见</text>
+
+        <path class="fl" d="M635,334 L635,378" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+        <text class="al" x="651" y="352">请求转发 · 响应返回</text>
+
+        <path class="fl" d="M200,528 L200,572" marker-end="url(#arrow)"/>
+        <text class="al" x="216" y="552">触发生成任务（异步）</text>
+
+        <path class="fl" d="M200,702 L200,746" marker-end="url(#arrow)"/>
+        <text class="al" x="216" y="726">写入切片图（含水印）</text>
+
+        <path class="fd" d="M930,886 L930,930" marker-end="url(#arrowGray)"/>
+        <text class="ag" x="946" y="912">后台读取意见数据</text>
+
+        <!-- 左侧走廊：后端 ↔ 存储 元数据 -->
+        <path class="fd" d="M90,470 L58,470 L58,810 L90,810"
+              marker-start="url(#arrowGray)" marker-end="url(#arrowGray)"/>
+        <text class="ag" transform="translate(42,640) rotate(-90)" text-anchor="middle" dominant-baseline="central">读写元数据</text>
+
+        <!-- 右侧走廊：后台管理端 ↔ 后端 -->
+        <path class="fd" d="M1180,1000 L1215,1000 L1215,470 L1180,470" marker-end="url(#arrowGray)"/>
+        <text class="ag" transform="translate(1238,735) rotate(-90)" text-anchor="middle" dominant-baseline="central">后台管理 API 调用</text>
+      </svg>
+    </div>
+
+    <div class="legend">
+      <span><i class="dot-r"></i>关键安全控制点</span>
+      <span><i class="dot-a"></i>核心模块</span>
+      <span><i class="dot-s"></i>普通模块</span>
+      <span><i class="line-s" style="display:inline-block"></i> 主流程（实线）</span>
+      <span><i class="line-d" style="display:inline-block"></i> 后台 / 数据访问（虚线）</span>
+    </div>
+  </section>
+
+  <!-- ============ 5 ============ -->
+  <section class="card" id="plan">
+    <h2><span class="n">5</span>分阶段实施计划</h2>
+    <table>
+      <thead><tr><th style="width:12%">阶段</th><th style="width:34%">主要工作</th><th style="width:32%">交付物</th><th style="width:22%">前置依赖</th></tr></thead>
+      <tbody>
+        <tr><td><strong>一期</strong></td><td>资源广场前端页面 + 意见表单 UI（暂用 LocalStorage 适配器）</td><td>可演示的 <code>resources.html</code></td><td>无，可立即开工</td></tr>
+        <tr><td><strong>二期</strong></td><td>后端服务 + PPT 转换流水线 + 私有/受控存储</td><td>可在线播放的真实功能</td><td>服务器 / Docker 环境</td></tr>
+        <tr><td><strong>三期</strong></td><td>后台管理端：意见看板、PPT 管理、审计日志</td><td>管理后台页面</td><td>二期数据表就绪</td></tr>
+        <tr><td><strong>四期</strong></td><td>切换 HttpAdapter、数据迁移、压测与安全加固</td><td>正式上线版本</td><td>三期验收通过</td></tr>
+      </tbody>
+    </table>
+    <div class="callout">
+      <span class="t">推进建议</span>
+      <p>一期与二期可以<strong>并行推进</strong>：前端按第 3.5 节的接口契约先行开发并用 LocalStorage 适配器跑通交互，后端就绪后只需替换适配器即可，不会产生返工。</p>
+    </div>
+  </section>
+
+  <!-- ============ 6 ============ -->
+  <section class="card" id="risk">
+    <h2><span class="n">6</span>风险与注意事项</h2>
+    <ul class="dot">
+      <li><strong>预期管理风险（最高）</strong>：需求方若坚持"绝对无法下载"，会与验收标准冲突。<strong>务必在开工前书面确认</strong>第 1.2 节的能力边界。</li>
+      <li><strong>转换保真度</strong>：LibreOffice 对复杂动画、特殊字体、SmartArt 的还原度有限。建议制定一份课件制作规范（如统一使用常见字体），或在关键课件上改用 PowerPoint COM。</li>
+      <li><strong>性能与成本</strong>：200 DPI 切片体积较大，建议按需懒加载、开启 CDN 缓存；转换任务务必异步化，避免阻塞接口响应。</li>
+      <li><strong>版权合规</strong>：上传的 PPT 需确认来源合法，后台应保留上传者与授权记录。</li>
+      <li><strong>水印隐私</strong>：水印包含用户标识，属个人信息，需在隐私政策中说明用途并限制访问权限。</li>
+      <li><strong>文件命名隐患</strong>：现有项目原有 <code>index .html</code>（文件名含空格）与 <code>class.html</code>（首页）两个易混淆的文件，且 logo 链接指向不存在的 <code>index.html</code>。<span class="ok">已处理</span>：现已整理为 <code>index.html</code>（课程列表首页）+ <code>course.html</code>（课程详情），全站引用同步更新。新增页面请沿用这一无空格的英文命名规则。</li>
+    </ul>
+  </section>
+
+  <footer>
+    <strong>星火支教科普平台 · 资源广场功能技术方案 v1.0</strong><br>
+    本文档为设计阶段产出，未改动任何现有代码。
+  </footer>
+</div>
+
+<script src="assets/js/visual.js"></script>
+</body>
+</html>

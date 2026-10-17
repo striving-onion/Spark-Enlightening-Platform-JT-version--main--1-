@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+  <script src="assets/js/theme-init.js"></script>
+  <link rel="stylesheet" href="assets/css/legacy-tokens.css"/>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>学生端 | AI支教科普</title>
+  <link href="assets/favicon.png" rel="icon" type="image/png"/>
+  <link href="assets/css/base.css" rel="stylesheet"/>
+  <link href="assets/css/portal.css" rel="stylesheet"/>
+  <link href="assets/css/visual.css" rel="stylesheet"/>
+  <meta content="学生端：免费观看课程视频与课件，记录学习进度。" name="description"/>
+ </head>
+ <body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header">
+   <nav aria-label="主导航" class="site-nav">
+    <a class="site-brand" href="index.html">星火 · AI支教科普</a>
+    <div class="site-links">
+     <a href="index.html">课程列表</a>
+     <a href="ai-series.html">AI科普系列</a>
+     <a href="game.html">互动游戏</a>
+    </div>
+   </nav>
+  </header>
+
+  <main class="portal" id="main">
+
+   <div class="portal-head">
+    <div>
+     <span class="eyebrow">学生端</span>
+     <h1 id="greet">欢迎回来</h1>
+     <p class="sub">全部课程免费学习，进度自动保存在本机。</p>
+    </div>
+    <div class="identity">
+     <span class="identity-mark" aria-hidden="true">学</span>
+     <div>
+      <div class="identity-name" id="identName">—</div>
+      <div class="identity-meta" id="identMeta">—</div>
+     </div>
+     <button id="logoutBtn" type="button">退出</button>
+    </div>
+   </div>
+
+   <div class="stats">
+    <div class="stat-card accent">
+     <div class="k">学习完成率</div>
+     <div class="v" id="statRate">0<small>%</small></div>
+    </div>
+    <div class="stat-card">
+     <div class="k">课程总数</div>
+     <div class="v" id="statTotal">0<small>门</small></div>
+    </div>
+    <div class="stat-card">
+     <div class="k">已完成</div>
+     <div class="v" id="statDone">0<small>门</small></div>
+    </div>
+    <div class="stat-card">
+     <div class="k">学习中</div>
+     <div class="v" id="statDoing">0<small>门</small></div>
+    </div>
+   </div>
+
+   <section class="panel">
+    <h2>我的课程</h2>
+    <p class="panel-sub">点击「开始学习」进入课程详情页观看看视频与随堂提问。</p>
+    <div class="field" style="max-width:260px">
+     <label for="courseFilter">筛选</label>
+     <select id="courseFilter">
+      <option value="all">全部课程</option>
+      <option value="doing">学习中</option>
+      <option value="todo">未开始</option>
+      <option value="done">已完成</option>
+     </select>
+    </div>
+    <div class="list" id="myCourses"></div>
+   </section>
+
+   <section class="panel">
+    <h2>课程课件（PPT）</h2>
+    <p class="panel-sub">课件仅在页面内播放，不提供下载。资源广场上线后开放完整目录。</p>
+    <div class="list" id="resourceList"></div>
+   </section>
+
+  </main>
+
+  <script src="assets/js/site.js"></script>
+  <script src="assets/courses.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/student.js"></script>
+  <script src="assets/js/visual.js"></script>
+ </body>
+</html>

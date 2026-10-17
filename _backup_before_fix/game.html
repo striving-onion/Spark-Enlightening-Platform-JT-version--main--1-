@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI游戏库 - AI猜数字</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Inter', system-ui, sans-serif;
+}
+:root {
+--purple: #6366f1;
+--green: #00E08E;
+--pink: #FF62CB;
+--bg: #f0f7ff;
+}
+body {
+background: var(--bg);
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+padding: 20px;
+}
+.game-box {
+background: white;
+padding: 40px 30px;
+border-radius: 20px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+max-width: 450px;
+width: 100%;
+text-align: center;
+}
+h1 {
+color: var(--purple);
+margin-bottom: 10px;
+}
+.desc {
+color: #666;
+margin-bottom: 30px;
+line-height: 1.6;
+}
+.input-box {
+margin: 20px 0;
+}
+input {
+width: 100%;
+padding: 14px 18px;
+border: 2px solid #e2e8f0;
+border-radius: 12px;
+font-size: 18px;
+text-align: center;
+outline: none;
+}
+input:focus {
+border-color: var(--purple);
+}
+button {
+background: var(--purple);
+color: white;
+border: none;
+padding: 14px 24px;
+border-radius: 12px;
+font-size: 16px;
+font-weight: 600;
+cursor: pointer;
+margin-top: 10px;
+width: 100%;
+transition: 0.2s;
+}
+button:hover {
+background: #4f46e5;
+transform: translateY(-2px);
+}
+.tip {
+margin: 20px 0;
+font-size: 16px;
+color: #333;
+min-height: 24px;
+}
+.ai-info {
+margin-top: 30px;
+padding: 15px;
+background: #f8fafc;
+border-radius: 12px;
+font-size: 14px;
+color: #555;
+text-align: left;
+line-height: 1.6;
+}
+.ai-info h4 {
+color: var(--green);
+margin-bottom: 8px;
+}
+.win {
+color: var(--green);
+font-weight: bold;
+font-size: 18px;
+}
+.lose {
+color: var(--pink);
+}
+</style>
+</head>
+
+<body>
+<div class="game-box">
+<h1>🤖 AI猜数字</h1>
+<p class="desc">AI已经想好一个 1~100 的数字<br>快来猜猜看！</p>
+
+<div class="input-box">
+<input type="number" id="guessInput" placeholder="输入你的答案" min="1" max="100">
+</div>
+
+<button onclick="guess()">开始猜！</button>
+<div class="tip" id="tip"></div>
+
+<div class="ai-info">
+<h4>🧠 AI小知识</h4>
+这个小游戏用到了AI最基础的能力：<br>
+1. 生成随机数（模拟AI决策）<br>
+2. 根据输入给出反馈（AI交互逻辑）<br>
+3. 不断学习你的行为 → 真正AI的核心！
+</div>
+</div>
+
+<script>
+let aiNumber = Math.floor(Math.random() * 100) + 1;
+let tip = document.getElementById('tip');
+
+function guess() {
+let input = document.getElementById('guessInput');
+let userGuess = parseInt(input.value);
+
+if (!userGuess || userGuess < 1 || userGuess > 100) {
+tip.textContent = "请输入 1~100 之间的数字！";
+tip.className = "tip lose";
+return;
+}
+
+if (userGuess === aiNumber) {
+tip.textContent = "🎉 恭喜你猜对了！AI都佩服你！";
+tip.className = "tip win";
+} else if (userGuess > aiNumber) {
+tip.textContent = "⬇️ 数字太大了，再小一点！";
+tip.className = "tip lose";
+} else {
+tip.textContent = "⬆️ 数字太小了，再大一点！";
+tip.className = "tip lose";
+}
+}
+</script>
+</body>
+</html>

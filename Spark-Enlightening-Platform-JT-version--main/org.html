@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+  <script src="assets/js/theme-init.js"></script>
+  <link rel="stylesheet" href="assets/css/legacy-tokens.css"/>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>机构端 | AI支教科普</title>
+  <link href="assets/favicon.png" rel="icon" type="image/png"/>
+  <link href="assets/css/base.css" rel="stylesheet"/>
+  <link href="assets/css/portal.css" rel="stylesheet"/>
+  <link href="assets/css/visual.css" rel="stylesheet"/>
+  <meta content="机构端：需求池、教师审核、学校档案与资源调配建议。" name="description"/>
+ </head>
+ <body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header">
+   <nav aria-label="主导航" class="site-nav">
+    <a class="site-brand" href="index.html">星火 · AI支教科普</a>
+    <div class="site-links">
+     <a href="index.html">课程列表</a>
+     <a href="ai-series.html">AI科普系列</a>
+     <a href="game.html">互动游戏</a>
+    </div>
+   </nav>
+  </header>
+
+  <main class="portal" id="main">
+
+   <div class="portal-head">
+    <div>
+     <span class="eyebrow">机构端 · 管理后台</span>
+     <h1>需求汇总与资源调配</h1>
+     <p class="sub">把教师从学校带回的需求集中起来，按优先级排期，并在下一批次出发前准备好资源。</p>
+    </div>
+    <div class="identity">
+     <span class="identity-mark" aria-hidden="true">构</span>
+     <div>
+      <div class="identity-name" id="identName">—</div>
+      <div class="identity-meta" id="identMeta">—</div>
+     </div>
+     <button id="logoutBtn" type="button">退出</button>
+    </div>
+   </div>
+
+   <div class="stats">
+    <div class="stat-card accent">
+     <div class="k">覆盖学校</div>
+     <div class="v" id="statSchools">0<small>所</small></div>
+    </div>
+    <div class="stat-card">
+     <div class="k">需求总数</div>
+     <div class="v" id="statNeeds">0<small>条</small></div>
+    </div>
+    <div class="stat-card">
+     <div class="k">待汇总</div>
+     <div class="v" id="statPending">0<small>条</small></div>
+    </div>
+    <div class="stat-card">
+     <div class="k">紧急未落实</div>
+     <div class="v" id="statHigh">0<small>条</small></div>
+    </div>
+    <div class="stat-card">
+     <div class="k">需求落实率</div>
+     <div class="v" id="statDone">0<small>%</small></div>
+    </div>
+   </div>
+
+   <div class="tabs" role="tablist" aria-label="机构端功能">
+    <button class="is-active" data-tab="dashboard" role="tab" aria-selected="true" type="button">数据看板</button>
+    <button data-tab="needs" role="tab" aria-selected="false" type="button">需求池</button>
+    <button data-tab="teachers" role="tab" aria-selected="false" type="button">教师审核</button>
+    <button data-tab="schools" role="tab" aria-selected="false" type="button">学校档案</button>
+   </div>
+
+   <section class="panel" data-tab-panel="dashboard">
+    <h2>需求分类分布</h2>
+    <p class="panel-sub">按教师上报的缺口类型统计，用于决定下一批次优先准备什么。</p>
+    <div class="bar-chart" id="catChart"></div>
+
+    <h2 style="margin-top:28px">调配建议</h2>
+    <p class="panel-sub">根据当前需求池自动生成，仅供参考。</p>
+    <div class="list" id="adviceList"></div>
+   </section>
+
+   <section class="panel" data-tab-panel="needs" hidden>
+    <h2>需求池</h2>
+    <p class="panel-sub">教师支教结束后提交的学校需求。更新状态后，教师端会同步看到进度。</p>
+    <div class="field" style="max-width:240px">
+     <label for="needStatusFilter">按状态筛选</label>
+     <select id="needStatusFilter">
+      <option value="all">全部</option>
+      <option value="pending">待汇总</option>
+      <option value="planned">已列入计划</option>
+      <option value="prepared">已备好资源</option>
+      <option value="done">已落实</option>
+     </select>
+    </div>
+    <div class="list" id="needList"></div>
+   </section>
+
+   <section class="panel" data-tab-panel="teachers" hidden>
+    <h2>教师账号</h2>
+    <p class="panel-sub">教师注册后需审核通过才能登录。停用后该账号立即失效。</p>
+    <div class="list" id="teacherList"></div>
+   </section>
+
+   <section class="panel" data-tab-panel="schools" hidden>
+    <h2>学校档案</h2>
+    <p class="panel-sub">按需求记录自动汇总，形成每所学校的需求画像。</p>
+    <div class="list" id="schoolList"></div>
+   </section>
+
+   <p class="privacy-note" style="margin-top:24px">
+    <strong>演示数据说明</strong>：当前机构端展示的是本机演示数据。
+    接入后端后，这里将展示真实机构下的教师、学校与需求记录。
+   </p>
+
+  </main>
+
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/org.js"></script>
+  <script src="assets/js/visual.js"></script>
+ </body>
+</html>

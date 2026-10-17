@@ -1,0 +1,269 @@
+/* ==========================================================================
+   visual.css — 全站统一视觉层
+   目标：让「课程列表 / AI科普系列 / 互动游戏」共享同一套背景与节奏语言。
+   加载顺序须在各页面样式之后，以覆盖页面级背景。
+   ========================================================================== */
+
+/* ---------- 1. 统一环境背景（极光层） ----------
+   三页共用同一组光晕：紫为主，青与暖橙作点缀。
+   固定定位 + 不重复，避免长页面滚动时出现断层。 */
+body {
+  background-color: var(--bg-light);
+  background-image:
+    radial-gradient(58rem 42rem at 10% -12%, rgba(124, 92, 250, 0.18), transparent 62%),
+    radial-gradient(48rem 34rem at 96% 2%, rgba(56, 189, 248, 0.13), transparent 64%),
+    radial-gradient(52rem 36rem at 50% 112%, rgba(255, 151, 71, 0.11), transparent 62%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100vw 100vh, 100vw 100vh, 100vw 100vh;
+}
+
+/* 统一后隐藏各页原有的多色色块，避免三套形状语言互相打架 */
+.hero-bg-shape,
+.hero-shapes,
+.course-decor,
+.balls-fall { display: none; }
+
+/* ---------- 2. 统一区块节奏 ----------
+   各页 section 的内外边距此前各不相同，这里收敛为一套。 */
+.hero {
+  min-height: 62vh;
+  padding: clamp(48px, 9vw, 96px) 20px clamp(40px, 6vw, 72px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  isolation: isolate;
+}
+
+/* 统一 Hero 主标题的度量 */
+.hero h1,
+.hero-title {
+  font-size: clamp(2.2rem, 6.2vw, 4rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+  text-wrap: balance;
+}
+
+.hero p,
+.hero-desc {
+  font-size: clamp(1rem, 1.6vw, 1.125rem);
+  color: var(--text-gray);
+  max-width: 44rem;
+  margin-bottom: 28px;
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+/* 统一正文区块的横向留白与纵向间距 */
+.section,
+.course-box-section,
+.faq,
+.testis {
+  padding-block: clamp(48px, 7vw, 88px);
+  padding-inline: clamp(16px, 5vw, 5%);
+}
+
+/* ---------- 3. 统一区块小标题（eyebrow）----------
+   三页此前没有共同的「小节引导语」，补一个可复用的胶囊标签。 */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--brand) 10%, transparent);
+  color: var(--brand-dark);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+.eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* ---------- 4. 页脚统一 ----------
+   确保三页底部视觉一致，不因背景透明而露出断层。 */
+footer {
+  background: var(--text-dark);
+  color: #fff;
+  margin-top: 0;
+}
+
+/* ---------- 5. 入场动效 ----------
+   由 visual.js 添加 .reveal，再切到 .is-visible。
+   JS 不可用时不会添加 .reveal，内容始终可见。 */
+.reveal {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(12px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal:not(.is-visible) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---------- 6. 主题切换按钮 ---------- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1px solid var(--superhi-border);
+  border-radius: 10px;
+  background: var(--legacy-9);
+  color: var(--text-dark);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+.theme-toggle:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+/* ---------- 7. 暗色主题 ----------
+   通过覆盖 legacy token 让语义变量整体翻转，无需逐条改写组件。 */
+html[data-theme="dark"] {
+  --legacy-1: #A78BFA;
+  --legacy-2: #C4B5FD;
+  --legacy-3: #2C2550;
+  --legacy-4: #ECEBFF;
+  --legacy-5: #A9A7C9;
+  --legacy-6: #24264A;
+  --legacy-7: #34366A;
+  --legacy-8: #0F1020;
+  --legacy-9: #1A1B33;
+  --legacy-10: #1A1B33;
+  --legacy-20: #2E3057;
+  --legacy-21: #3A3D6B;
+  --legacy-27: #2A2C52;
+  --legacy-31: #ECEBFF;
+  --legacy-32: #3A3D6B;
+  --legacy-49: #C7C5E4;
+  --legacy-52: #9B99BE;
+  --legacy-53: #B4B2D2;
+  --legacy-54: #DAD9F2;
+  --legacy-55: #B4B2D2;
+  --legacy-56: #262350;
+  --legacy-73: #D2D0EC;
+  color-scheme: dark;
+}
+
+html[data-theme="dark"] body {
+  background-color: var(--legacy-8);
+  background-image:
+    radial-gradient(58rem 42rem at 10% -12%, rgba(139, 108, 255, 0.28), transparent 62%),
+    radial-gradient(48rem 34rem at 96% 2%, rgba(56, 189, 248, 0.16), transparent 64%),
+    radial-gradient(52rem 36rem at 50% 112%, rgba(255, 151, 71, 0.12), transparent 62%);
+}
+
+html[data-theme="dark"] .site-header,
+html[data-theme="dark"] .site-nav {
+  background: rgba(15, 16, 32, 0.86);
+  backdrop-filter: blur(12px);
+}
+
+html[data-theme="dark"] .course-card,
+html[data-theme="dark"] .slide-card,
+html[data-theme="dark"] .sidebar,
+html[data-theme="dark"] .testimonial-card,
+html[data-theme="dark"] .faq-item,
+html[data-theme="dark"] .game-box,
+html[data-theme="dark"] .modal-box,
+html[data-theme="dark"] .testi-card {
+  background: var(--legacy-9);
+  border-color: var(--legacy-20);
+}
+
+html[data-theme="dark"] .msg-bot,
+html[data-theme="dark"] .ai-bubble {
+  background: var(--legacy-6);
+  color: var(--legacy-4);
+}
+
+html[data-theme="dark"] .testis {
+  background: #080915;
+}
+
+html[data-theme="dark"] .toast {
+  background: #ECEBFF;
+  color: #14152B;
+}
+
+/* ---------- 8. 小屏收敛 ---------- */
+@media (max-width: 560px) {
+  .hero { min-height: 52vh; }
+  .hero h1,
+  .hero-title { font-size: clamp(1.9rem, 8.4vw, 2.6rem); }
+}
+
+/* ---------- 9. 暗色主题下的品牌色块 ----------
+   --legacy-9 在暗色下会变成深色，若直接用作「紫底白字」的文字色就会失效。
+   这里把品牌色块上的文字强制回到白色。 */
+html[data-theme="dark"] .ai-send-btn,
+html[data-theme="dark"] .auth-submit,
+html[data-theme="dark"] .btn-p,
+html[data-theme="dark"] .course-box,
+html[data-theme="dark"] .smile-ball,
+html[data-theme="dark"] .card-green-btn,
+html[data-theme="dark"] .filter-item.active,
+html[data-theme="dark"] .identity-mark,
+html[data-theme="dark"] .chat-float-btn,
+html[data-theme="dark"] .banner-close,
+html[data-theme="dark"] .msg-user,
+html[data-theme="dark"] .user-bubble,
+html[data-theme="dark"] .stat-card.accent,
+html[data-theme="dark"] .btn-sm.primary {
+  color: #fff;
+}
+
+/* 品牌色块上的次要文字 */
+html[data-theme="dark"] .stat-card.accent .k,
+html[data-theme="dark"] .stat-card.accent .v small { color: rgba(255,255,255,.85); }
+
+/* 提示条在暗色下的可读性 */
+html[data-theme="dark"] .auth-msg.error { background: #3B1416; color: #FCA5A5; border-color: #7F1D1D; }
+html[data-theme="dark"] .auth-msg.ok    { background: #06281C; color: #6EE7B7; border-color: #065F46; }
+html[data-theme="dark"] .auth-msg.info  { background: #10233F; color: #93C5FD; border-color: #1E3A8A; }
+
+/* 状态徽章在暗色下加深底色 */
+html[data-theme="dark"] .badge.pending  { background: #3B2A06; color: #FCD34D; }
+html[data-theme="dark"] .badge.planned  { background: #10233F; color: #93C5FD; }
+html[data-theme="dark"] .badge.prepared { background: #241B4D; color: #C4B5FD; }
+html[data-theme="dark"] .badge.done     { background: #06281C; color: #6EE7B7; }
+html[data-theme="dark"] .badge.high     { background: #3B1416; color: #FCA5A5; }
+
+/* 输入框与下拉在暗色下 */
+html[data-theme="dark"] .field input,
+html[data-theme="dark"] .field select,
+html[data-theme="dark"] .form-grid textarea,
+html[data-theme="dark"] .search-input {
+  background: var(--legacy-8);
+  color: var(--text-dark);
+  border-color: var(--legacy-21);
+}
+html[data-theme="dark"] .mode-tabs,
+html[data-theme="dark"] .role-tabs { background: var(--legacy-6); }
+html[data-theme="dark"] .role-tab.is-active,
+html[data-theme="dark"] .mode-tab.is-active { background: var(--legacy-9); color: var(--brand); }
+html[data-theme="dark"] .list-item { background: rgba(255,255,255,.03); }
+html[data-theme="dark"] .list-item:hover { background: rgba(255,255,255,.06); }
+html[data-theme="dark"] .panel { background: var(--legacy-9); }

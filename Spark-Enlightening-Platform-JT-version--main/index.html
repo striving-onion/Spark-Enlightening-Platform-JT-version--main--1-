@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+<script src="assets/js/theme-init.js"></script>
+<link rel="stylesheet" href="assets/css/legacy-tokens.css">
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   AI支教科普 | 课程列表
+  </title>
+  <link href="assets/favicon.png" rel="icon" type="image/png"/>
+  <link href="assets/css/base.css" rel="stylesheet"/>
+  <link href="assets/css/index.css" rel="stylesheet"/>
+  <meta content="面向乡村支教的AI科普学习平台，提供20门课程，涵盖数据认知、人机交互、AI伦理与跨界应用。" name="description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="zh_CN" property="og:locale"/>
+  <meta content="AI支教科普 | 课程列表" property="og:title"/>
+  <meta content="面向乡村支教的AI科普学习平台，提供20门课程，涵盖数据认知、人机交互、AI伦理与跨界应用。" property="og:description"/>
+  <meta content="assets/images/share-card.jpg" property="og:image"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="AI支教科普 | 课程列表" name="twitter:title"/>
+  <meta content="面向乡村支教的AI科普学习平台，提供20门课程，涵盖数据认知、人机交互、AI伦理与跨界应用。" name="twitter:description"/>
+  <meta content="assets/images/share-card.jpg" name="twitter:image"/>
+  <meta content="1200" property="og:image:width"/>
+  <meta content="630" property="og:image:height"/>
+  <meta content="星火AI支教科普：20门科普课程，4个学习方向" property="og:image:alt"/>
+ <link rel="stylesheet" href="assets/css/visual.css">
+</head>
+ <body>
+  <div class="top-banner" id="banner">
+   <button aria-label="关闭通知横幅" class="banner-close" onclick="closeBanner()">
+    ×
+   </button>
+   <div class="banner-text">
+    欢迎开启 AI 科普之旅 · 零基础入门 · 支教团队 · 趣味实践
+   </div>
+  </div>
+  <a class="skip-link" href="#main">
+   跳到主要内容
+  </a>
+  <header class="site-header">
+   <nav aria-label="主导航" class="site-nav">
+    <a class="site-brand" href="index.html">
+     星火 · AI支教科普
+    </a>
+    <div class="site-links">
+     <a aria-current="page" href="index.html">
+      课程列表
+     </a>
+     <a href="ai-series.html">
+      AI科普系列
+     </a>
+     <a href="game.html">
+      互动游戏
+     </a>
+     <a href="login.html">登录 / 我的学习</a>
+    </div>
+    <button aria-label="登录或打开个人中心" class="site-account" onclick="onAvatarClick()">
+     <img alt="个人中心" class="avatar" decoding="async" height="38" src="assets/images/avatar-default.svg" width="38"/>
+    </button>
+   </nav>
+  </header>
+  <main id="main">
+   <section class="hero">
+    <div class="hero-bg-shape shape-pink">
+    </div>
+    <div class="hero-bg-shape shape-green">
+    </div>
+    <div class="hero-bg-shape shape-blue">
+    </div>
+    <div class="hero-bg-shape shape-yellow">
+    </div>
+    <h1 class="hero-title">
+     你的支教
+     <br/>
+     科普之旅
+     <br/>
+     从此开始
+    </h1>
+    <p class="hero-desc">
+     20门科普课程，随时随地学习，与支教团队一起探索人工智能
+    </p>
+    <div class="hero-tags">
+     <div class="hero-tag">
+      <span class="hero-tag-dot">
+      </span>
+      随时学习
+     </div>
+     <div class="hero-tag">
+      <span class="hero-tag-dot">
+      </span>
+      团队实操
+     </div>
+     <div class="hero-tag">
+      <span class="hero-tag-dot">
+      </span>
+      AI辅助
+     </div>
+    </div>
+   </section>
+   <div class="manual-slide-box">
+    <div class="slide-title">
+     科普课程与实践
+    </div>
+    <div class="slide-wrap">
+     <button aria-label="查看上一组课程" class="arrow-btn arrow-left" onclick="prevSlide()">
+      ◀
+     </button>
+     <button aria-label="查看下一组课程" class="arrow-btn arrow-right" onclick="nextSlide()">
+      ▶
+     </button>
+     <div class="slide-track" id="slideTrack">
+      <div class="slide-card">
+       <img alt="数据读心者课程封面" class="slide-card-img" decoding="async" height="320" loading="lazy" onerror="this.onerror=null;this.src='assets/course/placeholder.svg'" src="assets/images/数据读心者.webp" width="520"/>
+       <div class="slide-card-info">
+        <div class="slide-card-title">
+         数据读心者· AI支教科普启蒙课
+        </div>
+        <span class="slide-card-tag">
+         FREE
+        </span>
+        <span class="slide-card-tag">
+         BEGINNER
+        </span>
+        <button class="card-green-btn" onclick="openCourse(1)">
+         查看课程
+        </button>
+       </div>
+      </div>
+      <div class="slide-card">
+       <img alt="人机共舞课程封面" class="slide-card-img" decoding="async" height="320" loading="lazy" onerror="this.onerror=null;this.src='assets/course/placeholder.svg'" src="assets/images/人机舞蹈家.webp" width="520"/>
+       <div class="slide-card-info">
+        <div class="slide-card-title">
+         人机共舞· 智能交互
+        </div>
+        <span class="slide-card-tag">
+         BEGINNER
+        </span>
+        <span class="slide-card-discount">
+         开放学习
+        </span>
+        <button class="card-green-btn" onclick="openCourse(4)">
+         查看课程
+        </button>
+       </div>
+      </div>
+      <div class="slide-card">
+       <img alt="AI安全与科学素质课程封面" class="slide-card-img" decoding="async" height="320" loading="lazy" onerror="this.onerror=null;this.src='assets/course/placeholder.svg'" src="assets/images/伦理守护者.webp" width="520"/>
+       <div class="slide-card-info">
+        <div class="slide-card-title">
+         AI安全与科学素质
+        </div>
+        <span class="slide-card-tag">
+         BEGINNER
+        </span>
+        <span class="slide-card-discount">
+         开放学习
+        </span>
+        <button class="card-green-btn" onclick="openCourse(7)">
+         查看课程
+        </button>
+       </div>
+      </div>
+      <div class="slide-card">
+       <img alt="人工智能综合运用课程封面" class="slide-card-img" decoding="async" height="320" loading="lazy" onerror="this.onerror=null;this.src='assets/course/placeholder.svg'" src="assets/images/跨界编织术.webp" width="520"/>
+       <div class="slide-card-info">
+        <div class="slide-card-title">
+         人工智能综合运用
+        </div>
+        <span class="slide-card-tag">
+         BEGINNER
+        </span>
+        <span class="slide-card-discount">
+         开放学习
+        </span>
+        <button class="card-green-btn" onclick="openCourse(8)">
+         查看课程
+        </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="container" id="app">
+    <aside class="sidebar">
+     <div class="sidebar-title">
+      课程分类
+     </div>
+     <label class="sr-only" for="courseSearch">
+      搜索课程名称
+     </label>
+     <input class="search-input" id="courseSearch" oninput="filterCourses()" placeholder="搜索课程..." type="search"/>
+     <div class="filter-list">
+      <button aria-pressed="true" class="filter-item active" onclick="setFilter('all', event)" type="button">
+       全部课程
+      </button>
+      <button aria-pressed="false" class="filter-item" onclick="setFilter('data', event)" type="button">
+       数据读心术
+      </button>
+      <button aria-pressed="false" class="filter-item" onclick="setFilter('inter', event)" type="button">
+       人机共舞术
+      </button>
+      <button aria-pressed="false" class="filter-item" onclick="setFilter('ethic', event)" type="button">
+       伦理守护盾
+      </button>
+      <button aria-pressed="false" class="filter-item" onclick="setFilter('cross', event)" type="button">
+       跨界编织者
+      </button>
+     </div>
+    </aside>
+    <div class="course-content">
+     <p class="course-count" id="courseCount" role="status">
+     </p>
+     <div class="course-grid" id="courseGrid">
+     </div>
+    </div>
+   </div>
+  </main>
+  <div aria-labelledby="loginModalTitle" aria-modal="true" class="modal-mask" id="loginModal" inert="" role="dialog" tabindex="-1">
+   <div class="modal-box">
+    <h3 class="modal-title" id="loginModalTitle">
+     本机学习档案
+    </h3>
+    <p class="local-note">
+     此静态站点仅在本机保存学习档案，不提供账号认证。请勿填写真实账号密码。
+    </p>
+    <label for="loginUser">
+     学习昵称
+    </label>
+    <input autocomplete="nickname" class="modal-input" id="loginUser" placeholder="输入学习昵称"/>
+    <button class="modal-btn" onclick="login()">
+     开始学习
+    </button>
+    <button class="modal-btn modal-btn-outline" onclick="closeLogin()">
+     关闭
+    </button>
+   </div>
+  </div>
+  <div aria-labelledby="profileModalTitle" aria-modal="true" class="modal-mask" id="profileModal" inert="" role="dialog" tabindex="-1">
+   <div class="modal-box">
+    <h3 class="modal-title" id="profileModalTitle">
+     个人中心
+    </h3>
+    <img alt="头像预览" decoding="async" height="80" id="profileAvatar" loading="lazy" src="assets/images/avatar-default.svg" style="width:80px; height:80px; border-radius:50%; margin:0 auto 16px; display:block;" width="80"/>
+    <label for="avatarUpload">
+     更换头像（不超过2MB）
+    </label>
+    <input accept="image/*" id="avatarUpload" onchange="changeAvatar(event)" type="file"/>
+    <label for="nick">
+     昵称
+    </label>
+    <input class="modal-input" id="nick" placeholder="昵称"/>
+    <button class="modal-btn" onclick="saveProfile()">
+     保存
+    </button>
+    <button class="modal-btn modal-btn-outline" onclick="closeProfile()">
+     关闭
+    </button>
+   </div>
+  </div>
+  <button aria-controls="chatPanel" aria-expanded="false" aria-label="打开学习留言" class="chat-float-btn" onclick="toggleChat()" type="button">
+   💬
+  </button>
+  <div aria-label="学习留言" class="chat-panel" id="chatPanel" role="region">
+   <div class="chat-header">
+    <strong>
+     学习留言
+    </strong>
+    <button aria-label="关闭学习留言" onclick="toggleChat()" type="button">
+     ×
+    </button>
+   </div>
+   <div aria-live="polite" class="chat-body" id="chatBody" role="log">
+   </div>
+   <form class="ai-input-bar" onsubmit="event.preventDefault();sendMsg()">
+    <label class="sr-only" for="chatInput">
+     输入学习问题或留言
+    </label>
+    <input autocomplete="off" class="ai-input" id="chatInput" placeholder="记录你的问题…"/>
+    <button class="ai-send-btn" type="submit">
+     发送
+    </button>
+   </form>
+  </div>
+  <script src="assets/js/site.js">
+  </script>
+  <script src="assets/courses.js">
+  </script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/index.js">
+  </script>
+ <script src="assets/js/visual.js"></script>
+</body>
+</html>

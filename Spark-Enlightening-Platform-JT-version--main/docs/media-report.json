@@ -1,0 +1,298 @@
+{
+  "videos": [
+    {
+      "file": "assets\\videos\\人机舞蹈家.mp4",
+      "before": 37785539,
+      "after": 23796363
+    },
+    {
+      "file": "assets\\videos\\伦理守望者.mp4",
+      "before": 55805822,
+      "after": 7727131
+    },
+    {
+      "file": "assets\\videos\\数据读心者.mp4",
+      "before": 40371278,
+      "after": 5423391
+    },
+    {
+      "file": "assets\\videos\\跨界编织者.mp4",
+      "before": 68358560,
+      "after": 9923955
+    }
+  ],
+  "images": [
+    {
+      "source": "assets\\images\\4勋章.jpg",
+      "file": "assets\\images\\4勋章.webp",
+      "bytes": 24142
+    },
+    {
+      "source": "assets\\images\\AI助手.jpg",
+      "file": "assets\\images\\AI助手.webp",
+      "bytes": 6428
+    },
+    {
+      "source": "assets\\images\\alphafold.jpg",
+      "file": "assets\\images\\alphafold.webp",
+      "bytes": 23964
+    },
+    {
+      "source": "assets\\images\\乱七八糟的氨基酸链.jpg",
+      "file": "assets\\images\\乱七八糟的氨基酸链.webp",
+      "bytes": 28024
+    },
+    {
+      "source": "assets\\images\\人机舞蹈家.jpg",
+      "file": "assets\\images\\人机舞蹈家.webp",
+      "bytes": 21374
+    },
+    {
+      "source": "assets\\images\\伦理守护者.jpg",
+      "file": "assets\\images\\伦理守护者.webp",
+      "bytes": 28156
+    },
+    {
+      "source": "assets\\images\\信件.jpg",
+      "file": "assets\\images\\信件.webp",
+      "bytes": 11202
+    },
+    {
+      "source": "assets\\images\\加密信封.jpg",
+      "file": "assets\\images\\加密信封.webp",
+      "bytes": 7318
+    },
+    {
+      "source": "assets\\images\\团委徽章.jpg",
+      "file": "assets\\images\\团委徽章.webp",
+      "bytes": 18916
+    },
+    {
+      "source": "assets\\images\\宝藏.jpg",
+      "file": "assets\\images\\宝藏.webp",
+      "bytes": 27926
+    },
+    {
+      "source": "assets\\images\\探险.jpg",
+      "file": "assets\\images\\探险.webp",
+      "bytes": 34096
+    },
+    {
+      "source": "assets\\images\\数据读心者.png",
+      "file": "assets\\images\\数据读心者.webp",
+      "bytes": 30976
+    },
+    {
+      "source": "assets\\images\\整齐折叠.jpg",
+      "file": "assets\\images\\整齐折叠.webp",
+      "bytes": 28030
+    },
+    {
+      "source": "assets\\images\\校徽（白底）.jpg",
+      "file": "assets\\images\\university-badge-white.webp",
+      "bytes": 15552
+    },
+    {
+      "source": "assets\\images\\校徽（透明底）.png",
+      "file": "assets\\images\\university-badge-transparent.webp",
+      "bytes": 51094
+    },
+    {
+      "source": "assets\\images\\研究茶叶.jpg",
+      "file": "assets\\images\\研究茶叶.webp",
+      "bytes": 24400
+    },
+    {
+      "source": "assets\\images\\破解难题.jpg",
+      "file": "assets\\images\\破解难题.webp",
+      "bytes": 34972
+    },
+    {
+      "source": "assets\\images\\科学家.jpg",
+      "file": "assets\\images\\科学家.webp",
+      "bytes": 20030
+    },
+    {
+      "source": "assets\\images\\第三章.jpg",
+      "file": "assets\\images\\第三章.webp",
+      "bytes": 31932
+    },
+    {
+      "source": "assets\\images\\第四章.jpg",
+      "file": "assets\\images\\第四章.webp",
+      "bytes": 32348
+    },
+    {
+      "source": "assets\\images\\终极任务挑战书.jpg",
+      "file": "assets\\images\\终极任务挑战书.webp",
+      "bytes": 30388
+    },
+    {
+      "source": "assets\\images\\终极挑战.jpg",
+      "file": "assets\\images\\终极挑战.webp",
+      "bytes": 37138
+    },
+    {
+      "source": "assets\\images\\老人采茶.jpg",
+      "file": "assets\\images\\老人采茶.webp",
+      "bytes": 29724
+    },
+    {
+      "source": "assets\\images\\茶农.jpg",
+      "file": "assets\\images\\茶农.webp",
+      "bytes": 23122
+    },
+    {
+      "source": "assets\\images\\跨界编织术.jpg",
+      "file": "assets\\images\\跨界编织术.webp",
+      "bytes": 30312
+    },
+    {
+      "source": "assets\\images\\院徽（浅蓝）.png",
+      "file": "assets\\images\\college-badge-light-blue.webp",
+      "bytes": 56816
+    },
+    {
+      "source": "assets\\images\\院徽（深蓝）.png",
+      "file": "assets\\images\\college-badge-dark-blue.webp",
+      "bytes": 54790
+    },
+    {
+      "source": "assets\\images\\院徽（白底）.jpg",
+      "file": "assets\\images\\college-badge-white-background.webp",
+      "bytes": 11966
+    },
+    {
+      "source": "assets\\images\\院徽（白）.png",
+      "file": "assets\\images\\college-badge-white.webp",
+      "bytes": 27626
+    },
+    {
+      "source": "assets\\images\\院徽（紫）.png",
+      "file": "assets\\images\\college-badge-purple.webp",
+      "bytes": 45954
+    },
+    {
+      "source": "assets\\images\\院徽（蓝 稍亮）.png",
+      "file": "assets\\images\\college-badge-blue-bright.webp",
+      "bytes": 56466
+    },
+    {
+      "source": "assets\\images\\院徽（金）.png",
+      "file": "assets\\images\\college-badge.webp",
+      "bytes": 4644
+    },
+    {
+      "source": "assets\\images\\集结.jpg",
+      "file": "assets\\images\\集结.webp",
+      "bytes": 39710
+    },
+    {
+      "source": "assets\\images\\领队介绍.jpg",
+      "file": "assets\\images\\领队介绍.webp",
+      "bytes": 32920
+    },
+    {
+      "source": "assets\\course\\1.jpg",
+      "file": "assets\\course\\1.webp",
+      "bytes": 30142
+    },
+    {
+      "source": "assets\\course\\13.jpg",
+      "file": "assets\\course\\13.webp",
+      "bytes": 23240
+    },
+    {
+      "source": "assets\\course\\14.jpg",
+      "file": "assets\\course\\14.webp",
+      "bytes": 32390
+    },
+    {
+      "source": "assets\\course\\19.jpg",
+      "file": "assets\\course\\19.webp",
+      "bytes": 33802
+    },
+    {
+      "source": "assets\\course\\2.jpg",
+      "file": "assets\\course\\2.webp",
+      "bytes": 33994
+    },
+    {
+      "source": "assets\\course\\3.jpg",
+      "file": "assets\\course\\3.webp",
+      "bytes": 18076
+    }
+  ],
+  "covers": [
+    {
+      "id": 4,
+      "source": "assets\\videos\\人机舞蹈家.mp4",
+      "frame_seconds": 10.0
+    },
+    {
+      "id": 5,
+      "source": "assets\\videos\\人机舞蹈家.mp4",
+      "frame_seconds": 11.5
+    },
+    {
+      "id": 6,
+      "source": "assets\\videos\\人机舞蹈家.mp4",
+      "frame_seconds": 13.0
+    },
+    {
+      "id": 7,
+      "source": "assets\\videos\\伦理守望者.mp4",
+      "frame_seconds": 14.5
+    },
+    {
+      "id": 8,
+      "source": "assets\\videos\\跨界编织者.mp4",
+      "frame_seconds": 16.0
+    },
+    {
+      "id": 9,
+      "source": "assets\\videos\\跨界编织者.mp4",
+      "frame_seconds": 17.5
+    },
+    {
+      "id": 10,
+      "source": "assets\\videos\\跨界编织者.mp4",
+      "frame_seconds": 19.0
+    },
+    {
+      "id": 11,
+      "source": "assets\\videos\\伦理守望者.mp4",
+      "frame_seconds": 20.5
+    },
+    {
+      "id": 12,
+      "source": "assets\\videos\\伦理守望者.mp4",
+      "frame_seconds": 22.0
+    },
+    {
+      "id": 15,
+      "source": "assets\\videos\\人机舞蹈家.mp4",
+      "frame_seconds": 26.5
+    },
+    {
+      "id": 16,
+      "source": "assets\\videos\\人机舞蹈家.mp4",
+      "frame_seconds": 28.0
+    },
+    {
+      "id": 17,
+      "source": "assets\\videos\\跨界编织者.mp4",
+      "frame_seconds": 29.5
+    },
+    {
+      "id": 18,
+      "source": "assets\\videos\\跨界编织者.mp4",
+      "frame_seconds": 31.0
+    },
+    {
+      "id": 20,
+      "source": "assets\\videos\\跨界编织者.mp4",
+      "frame_seconds": 34.0
+    }
+  ]
+}

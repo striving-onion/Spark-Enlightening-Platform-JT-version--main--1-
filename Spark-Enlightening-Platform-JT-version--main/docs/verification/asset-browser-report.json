@@ -1,0 +1,278 @@
+{
+  "pages": [
+    {
+      "name": "index.html",
+      "main": 1,
+      "description": "面向乡村支教的AI科普学习平台，提供20门课程，涵盖数据认知、人机交互、AI伦理与跨界应用。",
+      "og": "AI支教科普 | 课程列表",
+      "icon": "http://127.0.0.1:4173/assets/favicon.png",
+      "unlabelled": [],
+      "fakeLinks": [],
+      "fakeDivs": 0
+    },
+    {
+      "name": "course.html?id=7",
+      "main": 1,
+      "description": "观看AI支教科普教学视频，学习人工智能基础知识，结合课程简介与随堂提问开展自主学习。",
+      "og": "课程详情 | AI支教科普",
+      "icon": "http://127.0.0.1:4173/assets/favicon.png",
+      "unlabelled": [],
+      "fakeLinks": [],
+      "fakeDivs": 0
+    },
+    {
+      "name": "game.html",
+      "main": 1,
+      "description": "通过1到100猜数字小游戏，体验输入、判断与反馈，理解程序逻辑和人工智能的基础概念。",
+      "og": "互动游戏 | AI支教科普",
+      "icon": "http://127.0.0.1:4173/assets/favicon.png",
+      "unlabelled": [],
+      "fakeLinks": [],
+      "fakeDivs": 0
+    },
+    {
+      "name": "ai-series.html",
+      "main": 1,
+      "description": "了解AI支教科普的四个课程方向，探索20门入门课程与互动练习，查看学习建议和常见问题。",
+      "og": "AI科普系列 | AI支教科普",
+      "icon": "http://127.0.0.1:4173/assets/favicon.png",
+      "unlabelled": [],
+      "fakeLinks": [],
+      "fakeDivs": 0
+    }
+  ],
+  "playback": [
+    {
+      "id": 1,
+      "category": "data",
+      "duration": 403.532683,
+      "width": 1280,
+      "height": 854,
+      "time": 0.509531,
+      "error": null,
+      "poster": "http://127.0.0.1:4173/assets/posters/%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%BF%83%E8%80%85.webp",
+      "src": "http://127.0.0.1:4173/assets/videos/%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%BF%83%E8%80%85.mp4",
+      "seek": true
+    },
+    {
+      "id": 4,
+      "category": "inter",
+      "duration": 1600.733333,
+      "width": 1280,
+      "height": 854,
+      "time": 0.508025,
+      "error": null,
+      "poster": "http://127.0.0.1:4173/assets/posters/%E4%BA%BA%E6%9C%BA%E8%88%9E%E8%B9%88%E5%AE%B6.webp",
+      "src": "http://127.0.0.1:4173/assets/videos/%E4%BA%BA%E6%9C%BA%E8%88%9E%E8%B9%88%E5%AE%B6.mp4",
+      "seek": true
+    },
+    {
+      "id": 7,
+      "category": "ethic",
+      "duration": 583.239002,
+      "width": 1280,
+      "height": 854,
+      "time": 0.511304,
+      "error": null,
+      "poster": "http://127.0.0.1:4173/assets/posters/%E4%BC%A6%E7%90%86%E5%AE%88%E6%9C%9B%E8%80%85.webp",
+      "src": "http://127.0.0.1:4173/assets/videos/%E4%BC%A6%E7%90%86%E5%AE%88%E6%9C%9B%E8%80%85.mp4",
+      "seek": true
+    },
+    {
+      "id": 8,
+      "category": "cross",
+      "duration": 772.341995,
+      "width": 1280,
+      "height": 854,
+      "time": 0.50862,
+      "error": null,
+      "poster": "http://127.0.0.1:4173/assets/posters/%E8%B7%A8%E7%95%8C%E7%BC%96%E7%BB%87%E8%80%85.webp",
+      "src": "http://127.0.0.1:4173/assets/videos/%E8%B7%A8%E7%95%8C%E7%BC%96%E7%BB%87%E8%80%85.mp4",
+      "seek": true
+    }
+  ],
+  "loops": [
+    {
+      "width": 320,
+      "gaps": [],
+      "seam": 0
+    },
+    {
+      "width": 375,
+      "gaps": [],
+      "seam": 0
+    },
+    {
+      "width": 768,
+      "gaps": [],
+      "seam": 0
+    },
+    {
+      "width": 1200,
+      "gaps": [],
+      "seam": 0
+    },
+    {
+      "width": 1920,
+      "gaps": [],
+      "seam": 0
+    },
+    {
+      "width": 2560,
+      "gaps": [],
+      "seam": 0
+    }
+  ],
+  "contrast": [
+    {
+      "selector": "card-green-btn",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(21, 128, 61)",
+      "ratio": 5.0155974781114745
+    },
+    {
+      "selector": "card-green-btn",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(21, 128, 61)",
+      "ratio": 5.0155974781114745
+    },
+    {
+      "selector": "card-green-btn",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(21, 128, 61)",
+      "ratio": 5.0155974781114745
+    },
+    {
+      "selector": "card-green-btn",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(21, 128, 61)",
+      "ratio": 5.0155974781114745
+    },
+    {
+      "selector": "filter-item active",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(99, 56, 245)",
+      "ratio": 6.149856954101151
+    },
+    {
+      "selector": "course-tag",
+      "color": "rgb(72, 32, 196)",
+      "background": "rgb(237, 233, 254)",
+      "ratio": 7.76027240653363
+    },
+    {
+      "selector": "course-tag",
+      "color": "rgb(72, 32, 196)",
+      "background": "rgb(237, 233, 254)",
+      "ratio": 7.76027240653363
+    },
+    {
+      "selector": "course-tag",
+      "color": "rgb(72, 32, 196)",
+      "background": "rgb(237, 233, 254)",
+      "ratio": 7.76027240653363
+    },
+    {
+      "selector": "course-tag",
+      "color": "rgb(72, 32, 196)",
+      "background": "rgb(237, 233, 254)",
+      "ratio": 7.76027240653363
+    },
+    {
+      "selector": "course-tag",
+      "color": "rgb(72, 32, 196)",
+      "background": "rgb(237, 233, 254)",
+      "ratio": 7.76027240653363
+    },
+    {
+      "selector": "course-tag",
+      "color": "rgb(72, 32, 196)",
+      "background": "rgb(237, 233, 254)",
+      "ratio": 7.76027240653363
+    },
+    {
+      "selector": "course-tag",
+      "color": "rgb(72, 32, 196)",
+      "background": "rgb(237, 233, 254)",
+      "ratio": 7.76027240653363
+    },
+    {
+      "selector": "course-tag",
+      "color": "rgb(72, 32, 196)",
+      "background": "rgb(237, 233, 254)",
+      "ratio": 7.76027240653363
+    },
+    {
+      "selector": "course-tag",
+      "color": "rgb(72, 32, 196)",
+      "background": "rgb(237, 233, 254)",
+      "ratio": 7.76027240653363
+    },
+    {
+      "selector": "course-tag",
+      "color": "rgb(72, 32, 196)",
+      "background": "rgb(237, 233, 254)",
+      "ratio": 7.76027240653363
+    },
+    {
+      "selector": "course-tag",
+      "color": "rgb(72, 32, 196)",
+      "background": "rgb(237, 233, 254)",
+      "ratio": 7.76027240653363
+    },
+    {
+      "selector": "course-tag",
+      "color": "rgb(72, 32, 196)",
+      "background": "rgb(237, 233, 254)",
+      "ratio": 7.76027240653363
+    },
+    {
+      "selector": "course-tag",
+      "color": "rgb(72, 32, 196)",
+      "background": "rgb(237, 233, 254)",
+      "ratio": 7.76027240653363
+    },
+    {
+      "selector": "course-tag",
+      "color": "rgb(72, 32, 196)",
+      "background": "rgb(237, 233, 254)",
+      "ratio": 7.76027240653363
+    },
+    {
+      "selector": "course-tag",
+      "color": "rgb(72, 32, 196)",
+      "background": "rgb(237, 233, 254)",
+      "ratio": 7.76027240653363
+    },
+    {
+      "selector": "course-tag",
+      "color": "rgb(72, 32, 196)",
+      "background": "rgb(237, 233, 254)",
+      "ratio": 7.76027240653363
+    },
+    {
+      "selector": "course-tag",
+      "color": "rgb(72, 32, 196)",
+      "background": "rgb(237, 233, 254)",
+      "ratio": 7.76027240653363
+    },
+    {
+      "selector": "course-tag",
+      "color": "rgb(72, 32, 196)",
+      "background": "rgb(237, 233, 254)",
+      "ratio": 7.76027240653363
+    },
+    {
+      "selector": "course-tag",
+      "color": "rgb(72, 32, 196)",
+      "background": "rgb(237, 233, 254)",
+      "ratio": 7.76027240653363
+    },
+    {
+      "selector": "course-tag",
+      "color": "rgb(72, 32, 196)",
+      "background": "rgb(237, 233, 254)",
+      "ratio": 7.76027240653363
+    }
+  ]
+}

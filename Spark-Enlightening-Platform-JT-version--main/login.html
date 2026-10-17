@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+  <script src="assets/js/theme-init.js"></script>
+  <link rel="stylesheet" href="assets/css/legacy-tokens.css"/>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>登录 / 注册 | AI支教科普</title>
+  <link href="assets/favicon.png" rel="icon" type="image/png"/>
+  <link href="assets/css/base.css" rel="stylesheet"/>
+  <link href="assets/css/portal.css" rel="stylesheet"/>
+  <link href="assets/css/visual.css" rel="stylesheet"/>
+  <meta content="学生、教师与支教机构统一入口：学生免费学习，教师获取示范课与资源，机构统筹需求与调配。" name="description"/>
+ </head>
+ <body class="auth-page">
+
+  <aside class="auth-aside">
+   <div class="auth-topbar">
+    <a class="site-brand" href="index.html">
+     星火 · AI支教科普
+    </a>
+    <span data-theme-host></span>
+   </div>
+   <h1>
+    三个角色，<br/>同一份支教初心
+   </h1>
+   <p>
+    学生免费学，教师有支撑，机构能统筹。选择一个身份，开始你在这条链路里的位置。
+   </p>
+   <div class="auth-points">
+    <div class="auth-point">
+     <span>🎒</span>
+     <span><strong>学生端</strong>免费观看全部课程视频与课件，学习进度自动记录。</span>
+    </div>
+    <div class="auth-point">
+     <span>🧑‍🏫</span>
+     <span><strong>教师端</strong>示范课、课件资源包与课堂演示工具，支教结束后可提交学校需求。</span>
+    </div>
+    <div class="auth-point">
+     <span>🏛️</span>
+     <span><strong>机构端</strong>汇总各校需求、管理教师与学校，统一调配资源与排期。</span>
+    </div>
+   </div>
+   <a class="btn-sm" href="index.html">← 先随便看看课程</a>
+  </aside>
+
+  <main class="auth-main" id="main">
+   <div class="auth-card">
+
+    <div class="role-tabs" role="tablist" aria-label="选择身份端">
+     <button class="role-tab" data-role-tab="student" role="tab" type="button">
+      <span class="role-icon">🎒</span>学生端
+     </button>
+     <button class="role-tab" data-role-tab="teacher" role="tab" type="button">
+      <span class="role-icon">🧑‍🏫</span>教师端
+     </button>
+     <button class="role-tab" data-role-tab="org" role="tab" type="button">
+      <span class="role-icon">🏛️</span>机构端
+     </button>
+    </div>
+
+    <h2 id="formTitle">登录学生端</h2>
+    <p class="auth-sub" id="roleHint">免费观看课程视频与课件，记录学习进度</p>
+
+    <div class="auth-msg" id="authMsg" role="status" aria-live="polite" hidden></div>
+
+    <div class="mode-tabs" role="tablist" aria-label="登录或注册">
+     <button class="mode-tab" data-mode-tab="login" role="tab" type="button">登录</button>
+     <button class="mode-tab" data-mode-tab="register" role="tab" type="button">注册</button>
+    </div>
+
+    <!-- ================= 登录 ================= -->
+    <form data-login-form data-when="login" novalidate>
+     <div class="field">
+      <label for="loginAccount">账号</label>
+      <input autocomplete="username" id="loginAccount" name="account" placeholder="学号 / 工号 / 管理员编号" required/>
+     </div>
+     <div class="field">
+      <label for="loginPassword">密码</label>
+      <input autocomplete="current-password" id="loginPassword" name="password" placeholder="输入密码" required type="password"/>
+     </div>
+     <button class="auth-submit" type="submit">登录</button>
+     <p class="auth-alt">
+      还没有账号？<a data-goto-mode="register" href="#">去注册</a>
+     </p>
+    </form>
+
+    <!-- ================= 注册：学生 ================= -->
+    <form data-register-form="student" data-role-panel="student" novalidate hidden>
+     <div class="field-row">
+      <div class="field">
+       <label for="sName">姓名</label>
+       <input id="sName" name="name" placeholder="真实姓名" required/>
+      </div>
+      <div class="field">
+       <label for="sSchool">学校</label>
+       <input id="sSchool" name="school" placeholder="例如：青山乡中心小学" required/>
+      </div>
+     </div>
+     <div class="field">
+      <label for="sAccount">登录账号</label>
+      <input autocomplete="username" id="sAccount" name="account" placeholder="建议使用学号" required/>
+      <p class="hint">账号用于登录，注册后不可修改。</p>
+     </div>
+     <div class="field">
+      <label for="sStudentNo">学号 <span class="field-optional">（与身份证号二选一）</span></label>
+      <input id="sStudentNo" name="studentNo" placeholder="6–20 位字母或数字"/>
+     </div>
+     <div class="field">
+      <label for="sIdCard">身份证号 <span class="field-optional">（可选）</span></label>
+      <input autocomplete="off" id="sIdCard" inputmode="text" maxlength="18" name="idCard" placeholder="18 位身份证号"/>
+      <p class="hint">仅用于本机演示的身份校验，不会上传。真实上线应改为学校统一认证。</p>
+     </div>
+     <div class="field-row">
+      <div class="field">
+       <label for="sPwd">密码</label>
+       <input autocomplete="new-password" id="sPwd" minlength="6" name="password" required type="password"/>
+      </div>
+      <div class="field">
+       <label for="sPwd2">确认密码</label>
+       <input autocomplete="new-password" id="sPwd2" minlength="6" name="password2" required type="password"/>
+      </div>
+     </div>
+     <button class="auth-submit" type="submit">注册并开始学习</button>
+    </form>
+
+    <!-- ================= 注册：教师 ================= -->
+    <form data-register-form="teacher" data-role-panel="teacher" novalidate hidden>
+     <div class="field-row">
+      <div class="field">
+       <label for="tName">姓名</label>
+       <input id="tName" name="name" placeholder="真实姓名" required/>
+      </div>
+      <div class="field">
+       <label for="tType">教师类型</label>
+       <select id="tType" name="teacherType" required>
+        <option value="">请选择</option>
+        <option value="school">在职教师</option>
+        <option value="volunteer">大学生支教志愿者</option>
+       </select>
+      </div>
+     </div>
+     <div class="field">
+      <label for="tInstitution">所在机构</label>
+      <input id="tInstitution" name="institution" placeholder="例如：星火支教志愿服务中心" required/>
+     </div>
+     <div class="field">
+      <label for="tSchool">所在高校 <span class="field-optional">（大学生支教必填）</span></label>
+      <input id="tSchool" name="school" placeholder="例如：某某师范大学"/>
+     </div>
+     <div class="field">
+      <label for="tStaffNo">工号 / 学号</label>
+      <input id="tStaffNo" name="staffNo" placeholder="在职教师填工号，大学生填学号" required/>
+     </div>
+     <div class="field-row">
+      <div class="field">
+       <label for="tAccount">登录账号</label>
+       <input autocomplete="username" id="tAccount" name="account" placeholder="建议使用工号" required/>
+      </div>
+      <div class="field">
+       <label for="tPwd">密码</label>
+       <input autocomplete="new-password" id="tPwd" minlength="6" name="password" required type="password"/>
+      </div>
+     </div>
+     <div class="field">
+      <label for="tPwd2">确认密码</label>
+      <input autocomplete="new-password" id="tPwd2" minlength="6" name="password2" required type="password"/>
+     </div>
+     <button class="auth-submit" type="submit">提交注册申请</button>
+     <p class="privacy-note">
+      教师账号需要<strong>机构审核</strong>后才能登录。审核状态可在机构端查看。
+     </p>
+    </form>
+
+    <!-- ================= 注册：机构 ================= -->
+    <form data-register-form="org" data-role-panel="org" novalidate hidden>
+     <div class="field">
+      <label for="oInstitution">机构名称</label>
+      <input id="oInstitution" name="institution" placeholder="例如：星火支教志愿服务中心" required/>
+     </div>
+     <div class="field-row">
+      <div class="field">
+       <label for="oName">管理员姓名</label>
+       <input id="oName" name="name" placeholder="真实姓名" required/>
+      </div>
+      <div class="field">
+       <label for="oStaffNo">管理员编号</label>
+       <input id="oStaffNo" name="staffNo" placeholder="机构内部编号" required/>
+      </div>
+     </div>
+     <div class="field-row">
+      <div class="field">
+       <label for="oAccount">登录账号</label>
+       <input autocomplete="username" id="oAccount" name="account" placeholder="机构登录账号" required/>
+      </div>
+      <div class="field">
+       <label for="oPwd">密码</label>
+       <input autocomplete="new-password" id="oPwd" minlength="6" name="password" required type="password"/>
+      </div>
+     </div>
+     <div class="field">
+      <label for="oPwd2">确认密码</label>
+      <input autocomplete="new-password" id="oPwd2" minlength="6" name="password2" required type="password"/>
+     </div>
+     <button class="auth-submit" type="submit">提交机构开通申请</button>
+     <p class="privacy-note">
+      机构端账号由<strong>平台统一开通</strong>，不支持自助注册。提交申请后由平台管理员审核。
+     </p>
+    </form>
+
+    <p class="privacy-note">
+      <strong>演示说明</strong>：当前为纯静态演示站，账号与学习数据仅保存在<strong>本机浏览器</strong>，
+      不会上传服务器。请勿填入真实身份证号或密码。
+    </p>
+
+   </div>
+  </main>
+
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/login.js"></script>
+  <script src="assets/js/visual.js"></script>
+ </body>
+</html>

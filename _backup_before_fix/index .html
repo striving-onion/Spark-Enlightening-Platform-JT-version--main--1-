@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数据读心术 | AI支教科普 Superhi原版风格</title>
+<style>
+/* 完全提取Superhi官网原版紫色配色！和截图完全一致 */
+:root {
+  --superhi-purple: #7928CA; /* 官网顶部深紫色 原图原色 */
+  --superhi-purple-light: #E9D5FF; /* 浅紫高亮 */
+  --superhi-white: #FFFFFF;
+  --superhi-bg: #FAFAFA;
+  --superhi-gray: #F3F4F6;
+  --superhi-text-dark: #111827;
+  --superhi-text-gray: #6B7280;
+  --superhi-radius: 8px; /* Superhi官方微圆角 直角硬朗 */
+  --max-width: 1200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Superhi官方无衬线粗体字体 */
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background-color: var(--superhi-bg);
+  color: var(--superhi-text-dark);
+  line-height: 1.5;
+  /* 👇加入Superhi同款背景几何色块装饰 绝对定位不遮挡内容 */
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ========== SUPERHI同款彩色几何装饰色块！和你截图一模一样 ========== */
+body::before,body::after,
+.deco1,.deco2,.deco3,.deco4{
+  position: absolute;
+  z-index: -1;
+  border-radius: 12px;
+}
+/* 粉色块 左下角 */
+body::before{
+  content: '';
+  width: 220px;
+  height: 220px;
+  background: #FFB8D0;
+  bottom: -80px;
+  left: -100px;
+}
+/* 黄色块 右下角 */
+body::after{
+  content: '';
+  width: 320px;
+  height: 280px;
+  background: #FFD124;
+  bottom: 120px;
+  right: -150px;
+}
+/* 绿色块 顶部右侧 */
+.deco1{
+  width: 180px;
+  height: 180px;
+  background: #22C55E;
+  top: 120px;
+  left: 20%;
+}
+/* 红色块 右侧 */
+.deco2{
+  width: 260px;
+  height: 360px;
+  background: #FF4757;
+  top: 300px;
+  right: -80px;
+}
+/* 顶部小蓝圆 */
+.deco3{
+  width: 60px;
+  height: 60px;
+  background: #2563EB;
+  border-radius: 50%;
+  top: 220px;
+  left: 12%;
+}
+/* 底部小紫块 */
+.deco4{
+  width: 120px;
+  height: 120px;
+  background: var(--superhi-purple-light);
+  bottom: 200px;
+  left: 30%;
+}
+
+/* Superhi原版顶部紫色导航栏！和截图一模一样 */
+.superhi-header {
+  background-color: var(--superhi-purple);
+  color: white;
+  padding: 16px 24px;
+  position: relative;
+  z-index: 10;
+}
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Superhi官方宽屏左右两栏网格布局 */
+.container {
+  max-width: var(--max-width);
+  margin: 48px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 48px;
+  position: relative;
+  z-index: 5;
+}
+
+/* Superhi极简返回按钮 */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--superhi-text-dark);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 32px;
+}
+.back-btn:hover {
+  color: var(--superhi-purple);
+}
+
+/* 视频播放器 Superhi白色卡片硬朗风格 */
+.video-wrap {
+  width: 100%;
+  border-radius: var(--superhi-radius);
+  overflow: hidden;
+  background: #000;
+  margin-bottom: 32px;
+}
+.video-wrap video {
+  width: 100%;
+  display: block;
+}
+
+/* Superhi原版白色卡片样式！和截图弹窗卡片完全一致 */
+.course-card {
+  padding: 32px;
+  border-radius: var(--superhi-radius);
+  background: var(--superhi-white);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.course-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.course-tags {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+/* Superhi紫色标签！和截图紫色高亮完全一致 */
+.tag {
+  padding: 6px 14px;
+  background: var(--superhi-purple-light);
+  color: var(--superhi-purple);
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.course-desc {
+  font-size: 15px;
+  color: var(--superhi-text-gray);
+  line-height: 1.6;
+}
+
+/* 右侧AI助手面板 Superhi原版白色卡片+紫色主题 */
+.ai-panel {
+  border-radius: var(--superhi-radius);
+  overflow: hidden;
+  background: var(--superhi-white);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 40px;
+}
+
+/* AI头部分割线 Superhi原版线条风格 */
+.ai-header {
+  padding: 24px;
+  border-bottom: 1px solid var(--superhi-gray);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.ai-avatar {
+  width: 44px;
+  height: 44px;
+  background: var(--superhi-purple);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+}
+.ai-info h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.ai-info p {
+  font-size: 12px;
+  color: var(--superhi-text-gray);
+}
+
+/* AI聊天气泡 Superhi极简干净风格 */
+.ai-chat {
+  padding: 24px;
+  height: 480px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.chat-bubble {
+  max-width: 85%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 14px;
+}
+.ai-bubble {
+  align-self: flex-start;
+  background: var(--superhi-gray);
+  border-bottom-left-radius: 4px;
+}
+.user-bubble {
+  align-self: flex-end;
+  background: var(--superhi-purple);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+/* AI底部紫色发送按钮！Superhi原版紫色主色 */
+.ai-input-bar {
+  padding: 20px 24px;
+  border-top: 1px solid var(--superhi-gray);
+  display: flex;
+  gap: 12px;
+}
+.ai-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid var(--superhi-gray);
+  border-radius: 99px;
+  outline: none;
+  font-size: 14px;
+}
+.ai-send-btn {
+  padding: 0 20px;
+  background: var(--superhi-purple);
+  color: white;
+  border: none;
+  border-radius: var(--superhi-radius);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Superhi官方移动端响应式 */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .ai-panel {
+    position: static;
+  }
+}
+</style>
+</head>
+<body>
+<!-- Superhi同款彩色几何装饰色块（背景底层，不遮挡内容） -->
+<div class="deco1"></div>
+<div class="deco2"></div>
+<div class="deco3"></div>
+<div class="deco4"></div>
+
+<!-- Superhi原版顶部紫色导航栏 -->
+<div class="superhi-header">
+  <div class="header-inner">
+    <div class="header-title">SuperHi · AI支教科普课程</div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- 左侧视频+课程介绍 -->
+  <div class="main-side">
+    <button class="back-btn" onclick="history.back()">← 返回课程列表</button>
+
+    <div class="video-wrap">
+      <video controls width="100%">
+        <source src="assets/videos/数据读心者.mp4">
+      </video>
+    </div>
+
+    <!-- Superhi原版白色课程卡片 -->
+    <div class="course-card">
+      <h1 class="course-title">数据读心术 · AI支教科普启蒙课</h1>
+      <div class="course-tags">
+        <span class="tag">AI基础</span>
+        <span class="tag">支教教学</span>
+        <span class="tag">零基础入门</span>
+      </div>
+      <p class="course-desc">
+        本课程趣味讲解人工智能数据底层逻辑，面向乡村支教场景，帮助学生理解AI识别、分析数据的核心原理，建立科学的数字思维。
+      </p >
+    </div>
+  </div>
+
+  <!-- 右侧Superhi紫色主题AI助手面板 -->
+  <div class="ai-panel">
+    <div class="ai-header">
+      <div class="ai-avatar">AI</div>
+      <div class="ai-info">
+        <h3>支教AI学习助手</h3>
+        <p>视频随堂答疑辅导</p >
+      </div>
+    </div>
+
+    <div class="ai-chat">
+      <div class="chat-bubble ai-bubble">你好👋 我是本节课专属AI助教，观看视频有任何知识点问题都可以随时提问。</div>
+      <div class="chat-bubble user-bubble">什么是数据读心术？</div>
+      <div class="chat-bubble ai-bubble">数据读心术是AI的核心能力：人工智能通过读取、识别、分析生活里的文字、图片、声音数据，来理解信息内容，就像拥有读懂事物的能力一样。</div>
+    </div>
+
+    <div class="ai-input-bar">
+      <input class="ai-input" placeholder="输入你的问题...">
+      <button class="ai-send-btn">发送</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// AI聊天交互功能
+const input = document.querySelector('.ai-input');
+const btn = document.querySelector('.ai-send-btn');
+const chat = document.querySelector('.ai-chat');
+
+function sendMsg() {
+  const text = input.value.trim();
+  if(!text) return;
+  chat.innerHTML += `<div class="chat-bubble user-bubble">${text}</div>`;
+  input.value = '';
+  setTimeout(() => {
+    chat.innerHTML += `<div class="chat-bubble ai-bubble">我正在为你解答本节课对应的知识点~</div>`;
+    chat.scrollTop = chat.scrollHeight;
+  }, 600);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+btn.onclick = sendMsg;
+input.onkeydown = e => e.key === 'Enter' && sendMsg();
+</script>
+</body>
+</html>

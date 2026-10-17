@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+  <script src="assets/js/theme-init.js"></script>
+  <link rel="stylesheet" href="assets/css/legacy-tokens.css"/>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>教师端 | AI支教科普</title>
+  <link href="assets/favicon.png" rel="icon" type="image/png"/>
+  <link href="assets/css/base.css" rel="stylesheet"/>
+  <link href="assets/css/portal.css" rel="stylesheet"/>
+  <link href="assets/css/visual.css" rel="stylesheet"/>
+  <meta content="教师端：示范课、课件资源包、课堂演示工具与支教需求上报。" name="description"/>
+ </head>
+ <body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header">
+   <nav aria-label="主导航" class="site-nav">
+    <a class="site-brand" href="index.html">星火 · AI支教科普</a>
+    <div class="site-links">
+     <a href="index.html">课程列表</a>
+     <a href="ai-series.html">AI科普系列</a>
+     <a href="game.html">互动游戏</a>
+    </div>
+   </nav>
+  </header>
+
+  <main class="portal" id="main">
+
+   <div class="portal-head">
+    <div>
+     <span class="eyebrow">教师端</span>
+     <h1>教学资源与需求上报</h1>
+     <p class="sub">示范课、课件资源包与课堂演示工具；支教结束后提交学校需求，机构端会统一汇总。</p>
+    </div>
+    <div class="identity">
+     <span class="identity-mark" aria-hidden="true">师</span>
+     <div>
+      <div class="identity-name" id="identName">—</div>
+      <div class="identity-meta" id="identMeta">—</div>
+     </div>
+     <button id="logoutBtn" type="button">退出</button>
+    </div>
+   </div>
+
+   <div class="tabs" role="tablist" aria-label="教师端功能">
+    <button class="is-active" data-tab="demo" role="tab" aria-selected="true" type="button">示范课</button>
+    <button data-tab="packs" role="tab" aria-selected="false" type="button">资源包</button>
+    <button data-tab="tools" role="tab" aria-selected="false" type="button">演示工具</button>
+    <button data-tab="needs" role="tab" aria-selected="false" type="button">需求上报</button>
+   </div>
+
+   <section class="panel" data-tab-panel="demo">
+    <h2>示范课</h2>
+    <p class="panel-sub">可直接用于课堂的完整课例，含时长、适用年级与教学建议。</p>
+    <div class="list" id="demoList"></div>
+   </section>
+
+   <section class="panel" data-tab-panel="packs" hidden>
+    <h2>课件资源包</h2>
+    <p class="panel-sub">按「零设备 / 班会 / 启发」三类打包，领取后由机构端统一分发。</p>
+    <div class="list" id="packList"></div>
+   </section>
+
+   <section class="panel" data-tab-panel="tools" hidden>
+    <h2>课堂演示工具</h2>
+    <p class="panel-sub">无需登录学生账号即可现场演示，适合 5–10 分钟的课堂互动。</p>
+    <div class="list" id="toolList"></div>
+   </section>
+
+   <section class="panel" data-tab-panel="needs" hidden>
+    <h2>支教需求上报</h2>
+    <p class="panel-sub">
+      支教结束后，把「学校缺少什么」和「从学校收集到的具体需要」记录下来。
+      提交后会进入机构端的需求池，供后续批次提前准备。
+    </p>
+
+    <form class="form-grid" id="needForm" novalidate>
+     <div class="field">
+      <label for="needSchool">学校名称</label>
+      <input id="needSchool" name="school" placeholder="例如：青山乡中心小学" required/>
+     </div>
+     <div class="field">
+      <label for="needBatch">支教批次</label>
+      <input id="needBatch" name="batch" placeholder="例如：2026 秋季第一批"/>
+     </div>
+     <div class="field span-2">
+      <label>缺少的内容（可多选）</label>
+      <div class="checkbox-grid" id="needCats"></div>
+     </div>
+     <div class="field span-2">
+      <label for="needDetail">具体情况</label>
+      <textarea id="needDetail" name="detail" placeholder="例如：缺少投影设备，学生未接触过计算机；希望提供无需设备即可开展的 AI 通识课。"></textarea>
+     </div>
+     <div class="field">
+      <label for="needUrgency">紧急程度</label>
+      <select id="needUrgency" name="urgency">
+       <option value="normal">普通</option>
+       <option value="high">紧急（下批次前需要）</option>
+      </select>
+     </div>
+     <div class="field" style="display:flex;align-items:flex-end">
+      <button class="auth-submit" type="submit" style="margin-top:0">提交需求</button>
+     </div>
+    </form>
+
+    <h2 style="margin-top:28px">我提交的需求</h2>
+    <p class="panel-sub">状态由机构端更新，这里可以看到进度。</p>
+    <div class="list" id="myNeeds"></div>
+   </section>
+
+  </main>
+
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/teacher.js"></script>
+  <script src="assets/js/visual.js"></script>
+ </body>
+</html>

@@ -1,0 +1,145 @@
+{
+  "videos": [
+    {
+      "name": "人机舞蹈家.mp4",
+      "before": 37785539,
+      "after": 23796363,
+      "duration": 1600.73,
+      "dimensions": "1280x854",
+      "codec": "H.264/AAC mono",
+      "faststart": true,
+      "decoded_sample_seconds": [
+        0.5,
+        800.365,
+        1598.73
+      ]
+    },
+    {
+      "name": "伦理守望者.mp4",
+      "before": 55805822,
+      "after": 7727131,
+      "duration": 583.24,
+      "dimensions": "1280x854",
+      "codec": "H.264/AAC mono",
+      "faststart": true,
+      "decoded_sample_seconds": [
+        0.5,
+        291.62,
+        581.24
+      ]
+    },
+    {
+      "name": "数据读心者.mp4",
+      "before": 40371278,
+      "after": 5423391,
+      "duration": 403.53,
+      "dimensions": "1280x854",
+      "codec": "H.264/AAC mono",
+      "faststart": true,
+      "decoded_sample_seconds": [
+        0.5,
+        201.765,
+        401.53
+      ]
+    },
+    {
+      "name": "跨界编织者.mp4",
+      "before": 68358560,
+      "after": 9923955,
+      "duration": 772.34,
+      "dimensions": "1280x854",
+      "codec": "H.264/AAC mono",
+      "faststart": true,
+      "decoded_sample_seconds": [
+        0.5,
+        386.17,
+        770.34
+      ]
+    }
+  ],
+  "covers": [
+    {
+      "id": 1,
+      "bytes": 30142
+    },
+    {
+      "id": 2,
+      "bytes": 33994
+    },
+    {
+      "id": 3,
+      "bytes": 18076
+    },
+    {
+      "id": 4,
+      "bytes": 16898
+    },
+    {
+      "id": 5,
+      "bytes": 16506
+    },
+    {
+      "id": 6,
+      "bytes": 16870
+    },
+    {
+      "id": 7,
+      "bytes": 16562
+    },
+    {
+      "id": 8,
+      "bytes": 16114
+    },
+    {
+      "id": 9,
+      "bytes": 16668
+    },
+    {
+      "id": 10,
+      "bytes": 16278
+    },
+    {
+      "id": 11,
+      "bytes": 17162
+    },
+    {
+      "id": 12,
+      "bytes": 16604
+    },
+    {
+      "id": 13,
+      "bytes": 23240
+    },
+    {
+      "id": 14,
+      "bytes": 32390
+    },
+    {
+      "id": 15,
+      "bytes": 16750
+    },
+    {
+      "id": 16,
+      "bytes": 16658
+    },
+    {
+      "id": 17,
+      "bytes": 15706
+    },
+    {
+      "id": 18,
+      "bytes": 15890
+    },
+    {
+      "id": 19,
+      "bytes": 33802
+    },
+    {
+      "id": 20,
+      "bytes": 16438
+    }
+  ],
+  "featured_images_bytes": 115462,
+  "video_total_before": 202321199,
+  "video_total_after": 46870840
+}
